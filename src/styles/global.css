@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+/* Convenciones útiles para landing pages */
+:root {
+  color-scheme: light;
+}
+
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

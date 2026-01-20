@@ -1,0 +1,36 @@
+---
+const {
+  title = "TALAM | Maquinaria",
+  description = "TALAM: maquinaria y soluciones para proyectos industriales.",
+  canonicalURL,
+} = Astro.props;
+
+const canonical = canonicalURL ?? Astro.url;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="canonical" href={canonical} />
+    <meta name="description" content={description} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+
+    <title>{title}</title>
+
+    <link rel="icon" href="/favicon.svg" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style>
+  /* Import global vía CSS bundling */
+  @import "../styles/global.css";
+</style>
