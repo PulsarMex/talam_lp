@@ -7,39 +7,30 @@ const description = "TALAM. Próximamente en línea.";
 
 <BaseLayout title={title} description={description}>
   <main class="relative h-screen overflow-hidden bg-white text-neutral-900">
-    <div class="pointer-events-none absolute inset-0">
-      <div class="absolute inset-0 bg-white"></div>
-      <div
-        class="absolute -bottom-100 left-1/2 h-[95vh] w-[160vw] -translate-x-1/2
-        bg-[radial-gradient(ellipse_at_bottom,rgba(30,64,175,0.60),rgba(59,130,246,0.38)_40%,rgba(255,255,255,0)_75%)]
-        blur-3xl"
-      >
-      </div>
-      <div
-        class="absolute inset-0 opacity-[0.07]
-        bg-[radial-gradient(#000_1px,transparent_1px)]
-        bg-size-[22px_22px]"
-      >
-      </div>
+    <!-- Gradiente oscuro inferior (simple y visible) -->
+
+    <!-- relative bg-gradient-to-b from-blue-950 to-black text-white px-10 sm:px-14 lg:px-24 py-20 pt-30 -->
+    <div
+      class="absolute inset-x-0 -bottom-1 h-[50vh]
+         bg-gradient-to-t from-blue-950/70 via-blue-900/35 to-white"
+    >
     </div>
+
+    <!-- Contenido -->
     <section
       class="relative mx-auto flex h-full max-w-5xl flex-col items-center justify-center px-6 text-center"
     >
       <div class="w-full max-w-190">
         <img
-          src="/images/talam-logo.png"
+          src="/images/talam-logo-blue.png"
           alt="TALAM Maquinaria y Suministros"
           width="1200"
           height="600"
           loading="eager"
           decoding="async"
-          class="mx-auto h-auto w-full object-contain drop-shadow-[0_22px_55px_rgba(0,0,0,0.22)]"
+          class="mx-auto h-auto w-full object-contain drop-shadow-[0_22px_55px_rgba(0,0,0,0.25)]"
         />
       </div>
-
-      <p class="text-2xl font-semibold tracking-wide text-neutral-700">
-        Próximamente en línea...
-      </p>
     </section>
   </main>
 </BaseLayout>
