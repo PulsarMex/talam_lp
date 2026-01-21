@@ -1,0 +1,28 @@
+---
+const heroVideo = "/images/hero-video.mp4";
+---
+
+<section id="inicio" class="relative min-h-screen overflow-hidden bg-black">
+  <video
+    class="absolute inset-0 h-full w-full object-cover"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+    aria-hidden="true"
+  >
+    <source src={heroVideo} type="video/mp4" />
+  </video>
+  <div class="absolute inset-0 bg-black/65"></div>
+  <div class="relative z-10 mx-auto flex min-h-screen max-w-5xl items-center justify-center px-6 text-center">
+    <div class="space-y-5">
+      <h1 class="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+        Equipos y servicio para el sector energético
+      </h1>
+      <p class="mx-auto max-w-3xl text-lg text-white/85 sm:text-xl">
+        Renta de equipo y operación técnica con respuesta ágil y confiable en el sureste de México.
+      </p>
+    </div>
+  </div>
+</section>

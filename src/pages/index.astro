@@ -1,36 +1,16 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
 
-const title = "TALAM | Maquinaria y Suministros";
-const description = "TALAM. Próximamente en línea.";
+const title = "TALAM | Soluciones de medición petrolera";
+const description =
+  "Maquinarias TALAM ofrece renta de equipo de medición y servicio completo en campo para operaciones petroleras en el sureste de México.";
 ---
 
 <BaseLayout title={title} description={description}>
-  <main class="relative h-screen overflow-hidden bg-white text-neutral-900">
-    <!-- Gradiente oscuro inferior (simple y visible) -->
-
-    <!-- relative bg-gradient-to-b from-blue-950 to-black text-white px-10 sm:px-14 lg:px-24 py-20 pt-30 -->
-    <div
-      class="absolute inset-x-0 -bottom-1 h-[50vh]
-         bg-gradient-to-t from-blue-950/70 via-blue-900/35 to-white"
-    >
-    </div>
-
-    <!-- Contenido -->
-    <section
-      class="relative mx-auto flex h-full max-w-5xl flex-col items-center justify-center px-6 text-center"
-    >
-      <div class="w-full max-w-190">
-        <img
-          src="/images/talam-logo-blue.png"
-          alt="TALAM Maquinaria y Suministros"
-          width="1200"
-          height="600"
-          loading="eager"
-          decoding="async"
-          class="mx-auto h-auto w-full object-contain drop-shadow-[0_22px_55px_rgba(0,0,0,0.25)]"
-        />
-      </div>
-    </section>
+  <Header />
+  <main class="bg-white text-slate-900">
+    <Hero />
   </main>
 </BaseLayout>
