@@ -23,121 +23,238 @@ const tabs = [
 ];
 
 const valores = [
-  "Calidad",
-  "Disciplina",
-  "Perseverancia",
-  "Seguridad",
-  "Sostenibilidad",
-  "Innovación",
-  "Integridad",
+  {
+    title: "Calidad",
+    description:
+      "Compromiso con la excelencia en nuestros servicios y productos.",
+  },
+  {
+    title: "Disciplina",
+    description:
+      "Organización basada en el cumplimiento responsable de procesos y respeto al cliente.",
+  },
+  {
+    title: "Perseverancia",
+    description:
+      "Determinación para alcanzar objetivos incluso en contextos complejos o adversos.",
+  },
+  {
+    title: "Seguridad",
+    description:
+      "Prioridad a la seguridad y salud de nuestros colaboradores y clientes.",
+  },
+  {
+    title: "Sostenibilidad",
+    description:
+      "Protección del medio ambiente y promoción del desarrollo sostenible.",
+  },
+  {
+    title: "Innovación",
+    description:
+      "Desarrollo de soluciones eficientes y tecnológicamente avanzadas.",
+  },
+  {
+    title: "Integridad",
+    description: "Actuamos con ética y transparencia en nuestras operaciones.",
+  },
 ];
 ---
 
-<section id="nosotros" class="bg-white py-20">
+<section id="nosotros" class="bg-gray-50 py-20">
   <div class="mx-auto max-w-6xl px-6 sm:px-8 lg:px-10">
     <div class="space-y-8">
       <div class="space-y-4">
-        <span class="text-xs font-semibold uppercase tracking-wide text-blue-700">TALAM</span>
-        <h2 class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-          Identidad corporativa
-        </h2>
-        <p class="text-sm leading-relaxed text-slate-600">
-          Explora la esencia de TALAM: quiénes somos, nuestra misión, visión y los valores que
-          respaldan cada operación.
+        <span
+          class="text-md font-semibold uppercase tracking-wide text-blue-600"
+          >Nosotros</span
+        >
+        <div class="space-y-3">
+          <h2
+            class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl"
+          >
+            Identidad corporativa
+          </h2>
+          <span class="block h-1 w-16 rounded-full bg-blue-600"></span>
+        </div>
+        <p class="text-base leading-relaxed text-slate-600 sm:text-lg">
+          Explora la esencia de TALAM: quiénes somos, nuestra misión, visión y
+          los valores que respaldan cada operación.
         </p>
       </div>
 
       <div class="flex flex-wrap gap-3" data-tabs>
-        {tabs.map((tab) => (
-          <button
-            type="button"
-            data-tab={tab.id}
-            class="group inline-flex items-center gap-3 rounded-md border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition"
-            aria-selected={tab.id === "quienes" ? "true" : "false"}
-          >
-            <span class="flex h-9 w-9 items-center justify-center rounded-md bg-blue-50 text-blue-700 transition">
-              {tab.icon === "users" && (
-                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14.5 8a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 19a6 6 0 0 1 6-6h2a6 6 0 0 1 6 6" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M18 9a2.5 2.5 0 1 1-2.5 2.5" />
-                </svg>
-              )}
-              {tab.icon === "target" && (
-                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <circle cx="12" cy="12" r="7" />
-                  <circle cx="12" cy="12" r="3" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 5V3m7 9h2m-9 9v2m-9-11H3" />
-                </svg>
-              )}
-              {tab.icon === "eye" && (
-                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12s3.75-6 9.75-6 9.75 6 9.75 6-3.75 6-9.75 6-9.75-6-9.75-6Z" />
-                  <circle cx="12" cy="12" r="3" />
-                </svg>
-              )}
-              {tab.icon === "shield" && (
-                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3.75 19.5 7.5v4.5c0 5.4-3.75 8.25-7.5 9.75-3.75-1.5-7.5-4.35-7.5-9.75V7.5L12 3.75Z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="m9 12 2.25 2.25L15 10.5" />
-                </svg>
-              )}
-            </span>
-            <span class="text-sm sm:text-base">{tab.label}</span>
-          </button>
-        ))}
+        {
+          tabs.map((tab) => (
+            <button
+              type="button"
+              data-tab={tab.id}
+              class="group inline-flex items-center gap-3 rounded-md border border-gray-100 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition"
+              aria-selected={tab.id === "quienes" ? "true" : "false"}
+            >
+              <span class="flex h-10 w-10 items-center justify-center rounded-md bg-blue-50 text-blue-600 transition">
+                {tab.icon === "users" && (
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15.75 7a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4.5 19.5a6 6 0 0 1 6-6h3a6 6 0 0 1 6 6"
+                    />
+                  </svg>
+                )}
+                {tab.icon === "target" && (
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  >
+                    <circle cx="12" cy="12" r="7.5" />
+                    <circle cx="12" cy="12" r="3.25" />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 3.5V6m8.5 6h-2.5M12 18v2.5M6 12H3.5"
+                    />
+                  </svg>
+                )}
+                {tab.icon === "eye" && (
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                    />
+                  </svg>
+                )}
+                {tab.icon === "shield" && (
+                  <svg
+                    viewBox="0 0 24 24"
+                    class="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"
+                    />
+                  </svg>
+                )}
+              </span>
+              <span class="text-sm sm:text-base">{tab.label}</span>
+            </button>
+          ))
+        }
       </div>
 
-      <div class="rounded-2xl border border-slate-200 bg-linear-to-b from-white via-slate-50 to-white p-8 shadow-[0_28px_80px_-60px_rgba(15,23,42,0.45)]" data-panels>
-        <div data-panel="quienes">
-          <h3 class="text-3xl font-semibold text-slate-900">Quiénes somos</h3>
-          <p class="mt-4 text-lg leading-relaxed text-slate-600">
-            Maquinarias TALAM es una empresa 100% mexicana, establecida en 2024, enfocada en
-            satisfacer las necesidades del sector energético en oil &amp; gas. Nos mantenemos a la
-            vanguardia mediante actualización tecnológica y capacitación continua, elevando la
-            calidad de nuestros servicios. Apoyamos proyectos petroleros con soluciones de medición
-            en campo, adaptándonos al esquema de cada cliente: renta de equipo o servicio integral
-            con operación especializada.
+      <div
+        class="relative rounded-md border border-gray-100 bg-white p-10 shadow-sm"
+        data-panels
+      >
+        <span class="absolute right-0 top-0 h-1 w-20 bg-blue-600"></span>
+        <img
+          src="/images/talam-logo-white.png"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          class="pointer-events-none absolute left-1/2 top-1/2 w-72 -translate-x-1/2 -translate-y-1/2 opacity-4 invert brightness-90 sm:w-80 lg:w-96"
+        />
+        <div data-panel="quienes" class="relative z-10">
+          <h3 class="text-3xl font-semibold text-slate-900 m-0">
+            Quiénes somos
+          </h3>
+          <p class="text-lg leading-relaxed text-slate-600">
+            Maquinarias TALAM es una empresa 100% mexicana, establecida en 2024,
+            enfocada en satisfacer las necesidades del sector energético en oil
+            &amp; gas. Nos mantenemos a la vanguardia mediante actualización
+            tecnológica y capacitación continua, elevando la calidad de nuestros
+            servicios. Apoyamos proyectos petroleros con soluciones de medición
+            en campo, adaptándonos al esquema de cada cliente: renta de equipo o
+            servicio integral con operación especializada.
           </p>
         </div>
 
-        <div data-panel="mision" class="hidden">
-          <h3 class="text-3xl font-semibold text-slate-900">Misión</h3>
-          <p class="mt-4 text-lg leading-relaxed text-slate-600">
-            Proporcionar servicios de medición de pozos, automatización y control, suministro de
-            productos químicos y servicios de intervención, con un enfoque en la calidad, seguridad
-            y sostenibilidad, para satisfacer las necesidades de nuestros clientes y contribuir al
-            desarrollo sostenible de la industria petrolera.
+        <div data-panel="mision" class="relative z-10 hidden">
+          <h3 class="text-3xl font-semibold text-slate-900 m-0">Misión</h3>
+          <p class="text-lg leading-relaxed text-slate-600">
+            Proporcionar servicios de medición de pozos, automatización y
+            control, suministro de productos químicos y servicios de
+            intervención, con un enfoque en la calidad, seguridad y
+            sostenibilidad, para satisfacer las necesidades de nuestros clientes
+            y contribuir al desarrollo sostenible de la industria petrolera.
           </p>
         </div>
 
-        <div data-panel="vision" class="hidden">
-          <h3 class="text-3xl font-semibold text-slate-900">Visión</h3>
-          <p class="mt-4 text-lg leading-relaxed text-slate-600">
-            Ser líderes en la industria de servicios de medición y automatización de pozos
-            petroleros, ofreciendo soluciones integrales y personalizadas, con equipos y personal
-            capacitado, garantizando calidad, seguridad, salud y protección ambiental.
+        <div data-panel="vision" class="relative z-10 hidden">
+          <h3 class="text-3xl font-semibold text-slate-900 m-0">Visión</h3>
+          <p class="text-lg leading-relaxed text-slate-600">
+            Ser líderes en la industria de servicios de medición y
+            automatización de pozos petroleros, ofreciendo soluciones integrales
+            y personalizadas, con equipos y personal capacitado, garantizando
+            calidad, seguridad, salud y protección ambiental.
           </p>
         </div>
 
-        <div data-panel="valores" class="hidden">
-          <h3 class="text-3xl font-semibold text-slate-900">Valores</h3>
-          <ul class="mt-5 grid gap-4 text-sm text-slate-600 sm:grid-cols-2 lg:grid-cols-3">
-            {valores.map((valor) => (
-              <li class="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
-                <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
-                  <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12l4 4L19 7" />
-                  </svg>
-                </span>
-                <div>
-                  <p class="text-base font-semibold text-slate-900">{valor}</p>
-                  <p class="mt-1 text-sm text-slate-600">
-                    Compromiso activo con {valor.toLowerCase()} en cada operación.
-                  </p>
-                </div>
-              </li>
-            ))}
+        <div data-panel="valores" class="relative z-10 hidden">
+          <h3 class="text-3xl font-semibold text-slate-900 m-0">Valores</h3>
+          <ul
+            class="mt-5 grid gap-5 text-sm text-slate-600 sm:grid-cols-2 lg:grid-cols-3 p-0"
+          >
+            {
+              valores.map((valor) => (
+                <li class="flex items-start gap-4 rounded-md bg-gray-50 border border-gray-100  px-4 py-3">
+                  <span class="flex h-10 w-10 items-center justify-center rounded-md bg-emerald-50 text-emerald-600 ring-1 ring-emerald-100">
+                    
+                    <svg
+                      viewBox="0 0 24 24"
+                      class="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M5 12l4 4L19 7"
+                      />
+                    </svg>
+                  </span>
+                  <div>
+                    <p class="text-base font-semibold text-slate-900">
+                      {valor.title}
+                    </p>
+                    <p class="mt-1 text-sm leading-relaxed text-slate-600">
+                      {valor.description}
+                    </p>
+                  </div>
+                </li>
+              ))
+            }
           </ul>
         </div>
       </div>
@@ -155,18 +272,18 @@ const valores = [
       buttons.forEach((button) => {
         const isActive = button.dataset.tab === id;
         button.setAttribute("aria-selected", isActive ? "true" : "false");
-        button.classList.toggle("bg-blue-900", isActive);
-        button.classList.toggle("border-blue-900", isActive);
+        button.classList.toggle("bg-blue-600", isActive);
+        button.classList.toggle("border-blue-600", isActive);
         button.classList.toggle("text-white", isActive);
         button.classList.toggle("bg-white", !isActive);
         button.classList.toggle("text-slate-700", !isActive);
         button.classList.toggle("shadow-lg", isActive);
-        button.classList.toggle("shadow-blue-900/20", isActive);
+        button.classList.toggle("shadow-blue-600/25", isActive);
         const icon = button.querySelector("span");
         icon?.classList.toggle("bg-white/10", isActive);
         icon?.classList.toggle("text-white", isActive);
         icon?.classList.toggle("bg-blue-50", !isActive);
-        icon?.classList.toggle("text-blue-700", !isActive);
+        icon?.classList.toggle("text-blue-600", !isActive);
       });
       panels?.forEach((panel) => {
         panel.classList.toggle("hidden", panel.dataset.panel !== id);
