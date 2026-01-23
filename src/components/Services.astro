@@ -55,7 +55,7 @@ const services = [
         Servicios
       </p>
       <div class="space-y-3">
-        <h2 class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+        <h2 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
           Servicios especializados
         </h2>
         <span class="block h-1 w-16 rounded-full bg-blue-600"></span>
@@ -88,12 +88,21 @@ const services = [
             </div>
             <div class={`flex items-center ${service.panelBg} px-6 py-6 text-white sm:px-8 md:px-9`}>
               <div class="space-y-3">
-                <h3 class="m-0 text-2xl font-semibold leading-tight sm:text-3xl md:text-4xl">
+                <h3 class="m-0 text-2xl font-bold leading-tight sm:text-3xl md:text-4xl">
                   {service.title}
                 </h3>
                 <p class="text-sm leading-relaxed text-white/85 sm:text-base md:text-lg">
                   {service.description}
                 </p>
+                <button
+                  type="button"
+                  class="mt-2 inline-flex w-fit items-center gap-2 rounded-md border border-white/70 bg-transparent px-5 py-2.5 text-sm font-semibold text-white/90 transition hover:bg-white/30 hover:text-white"
+                >
+                  Ver más
+                  <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
