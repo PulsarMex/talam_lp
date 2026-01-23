@@ -1,0 +1,130 @@
+---
+const services = [
+  {
+    title: "Medición en circuito cerrado",
+    description:
+      "Medición de corrientes y pozos de producción en circuito cerrado con equipo separador trifásico, según requerimientos del cliente.",
+    image:
+      "https://images.unsplash.com/photo-1472141521881-95d0e87e2e39?auto=format&fit=crop&w=1200&h=1200&q=80",
+    overlay: "bg-blue-950/75",
+  },
+  {
+    title: "Medición a la atmósfera",
+    description:
+      "Medición con manifold de estrangulación, separador trifásico, frac tank o presas metálicas y quemador vertical.",
+    image:
+      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&h=1200&q=80",
+    overlay: "bg-blue-950/75",
+  },
+  {
+    title: "Servicio de well testing",
+    description:
+      "Well testing con manifold de estrangulación, equipo separador trifásico, frac tank o presas metálicas y quemador vertical, con personal capacitado.",
+    image:
+      "https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1200&h=1200&q=80",
+    overlay: "bg-blue-950/75",
+  },
+  {
+    title: "Mantenimiento de equipos",
+    description:
+      "Mantenimiento de manifold de estrangulación, presas metálicas o frac tank, separador trifásico, quemador vertical, tuberías, válvulas y accesorios.",
+    image:
+      "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&h=1200&q=80",
+    overlay: "bg-blue-950/75",
+  },
+  {
+    title: "Inyección y suministro de químicos",
+    description:
+      "Servicio especializado de inyección y suministro de químicos según los requerimientos del proyecto.",
+    image:
+      "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1200&h=1200&q=80",
+    overlay: "bg-blue-950/75",
+  },
+];
+---
+
+<section id="servicios" class="bg-white py-20">
+  <div class="mx-auto flex max-w-6xl flex-col gap-6 px-6 sm:px-8 lg:px-10">
+    <div class="space-y-4">
+      <p class="text-md font-semibold uppercase tracking-wide text-blue-600">
+        Servicios
+      </p>
+      <div class="space-y-3">
+        <h2 class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+          Servicios especializados
+        </h2>
+        <span class="block h-1 w-16 rounded-full bg-blue-600"></span>
+      </div>
+      <p class="mb-4 text-md leading-relaxed text-slate-600 sm:text-lg">
+        Soluciones técnicas para operación en campo, con equipos certificados y
+        personal capacitado según los requerimientos de cada proyecto.
+      </p>
+    </div>
+    <div class="grid gap-6 md:grid-cols-2">
+      {services.map((service, index) => (
+        <article
+          class={`relative h-72 overflow-hidden rounded-md transition-all duration-300 ease-out ${
+            index > 1 ? "hidden opacity-0" : "opacity-100"
+          }`}
+          data-service
+        >
+          <img
+            src={service.image}
+            alt={`Servicio de ${service.title}`}
+            width="900"
+            height="900"
+            loading="lazy"
+            decoding="async"
+            class="absolute inset-0 h-full w-full object-cover"
+          />
+          <div class="absolute inset-0 bg-linear-to-b from-black/90 via-blue-950/65 to-blue-900/50"></div>
+          <div class="absolute inset-0 flex flex-col justify-center gap-3 p-7 text-white">
+            <h3 class="m-0 text-3xl font-semibold leading-tight">{service.title}</h3>
+            <span class="text-base leading-relaxed text-white/85">{service.description}</span>
+            <button
+              type="button"
+              class="mt-2 inline-flex w-fit cursor-pointer items-center gap-2 rounded-md border border-white/70 bg-transparent px-4 py-2 text-sm font-semibold text-white/90 transition hover:bg-white/30 hover:text-white"
+            >
+              Ver más
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </button>
+          </div>
+        </article>
+      ))}
+    </div>
+    <button
+      type="button"
+      class="mx-auto rounded-md border border-gray-200 bg-transparent px-5 py-2.5 text-sm text-slate-600 transition hover:bg-gray-100"
+      data-services-toggle
+    >
+      Mostrar todo
+    </button>
+  </div>
+</section>
+
+<script is:inline>
+  const toggle = document.querySelector("[data-services-toggle]");
+  const cards = document.querySelectorAll("[data-service]");
+  if (toggle && cards.length > 2) {
+    toggle.addEventListener("click", () => {
+      const isExpanded = toggle.dataset.expanded === "true";
+      cards.forEach((card, index) => {
+        if (index > 1) {
+          if (isExpanded) {
+            card.classList.add("opacity-0");
+            setTimeout(() => card.classList.add("hidden"), 200);
+          } else {
+            card.classList.remove("hidden");
+            requestAnimationFrame(() => card.classList.remove("opacity-0"));
+          }
+        }
+      });
+      toggle.dataset.expanded = (!isExpanded).toString();
+      toggle.textContent = isExpanded ? "Mostrar todo" : "Mostrar menos";
+    });
+  } else if (toggle) {
+    toggle.classList.add("hidden");
+  }
+</script>
