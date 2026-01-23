@@ -6,7 +6,8 @@ const services = [
       "Medición de corrientes y pozos de producción en circuito cerrado con equipo separador trifásico, según requerimientos del cliente.",
     image:
       "https://images.unsplash.com/photo-1472141521881-95d0e87e2e39?auto=format&fit=crop&w=1200&h=1200&q=80",
-    overlay: "bg-linear-to-b from-black/85 via-teal-950/70 to-teal-800/55",
+    overlay: "bg-linear-to-b from-black/80 via-teal-950/65 to-teal-800/50",
+    panelBg: "bg-teal-950/90",
   },
   {
     title: "Medición a la atmósfera",
@@ -14,7 +15,8 @@ const services = [
       "Medición con manifold de estrangulación, separador trifásico, frac tank o presas metálicas y quemador vertical.",
     image:
       "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&h=1200&q=80",
-    overlay: "bg-linear-to-b from-black/85 via-amber-950/70 to-amber-800/55",
+    overlay: "bg-linear-to-b from-black/80 via-amber-950/65 to-amber-800/50",
+    panelBg: "bg-amber-950/90",
   },
   {
     title: "Servicio de well testing",
@@ -22,7 +24,8 @@ const services = [
       "Well testing con manifold de estrangulación, equipo separador trifásico, frac tank o presas metálicas y quemador vertical, con personal capacitado.",
     image:
       "https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1200&h=1200&q=80",
-    overlay: "bg-linear-to-b from-black/85 via-violet-950/70 to-violet-800/55",
+    overlay: "bg-linear-to-b from-black/80 via-violet-950/65 to-violet-800/50",
+    panelBg: "bg-violet-950/90",
   },
   {
     title: "Mantenimiento de equipos",
@@ -30,7 +33,8 @@ const services = [
       "Mantenimiento de manifold de estrangulación, presas metálicas o frac tank, separador trifásico, quemador vertical, tuberías, válvulas y accesorios.",
     image:
       "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&h=1200&q=80",
-    overlay: "bg-linear-to-b from-black/85 via-slate-900/75 to-slate-700/55",
+    overlay: "bg-linear-to-b from-black/80 via-slate-900/70 to-slate-700/50",
+    panelBg: "bg-slate-900/90",
   },
   {
     title: "Inyección y suministro de químicos",
@@ -38,7 +42,8 @@ const services = [
       "Servicio especializado de inyección y suministro de químicos según los requerimientos del proyecto.",
     image:
       "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1200&h=1200&q=80",
-    overlay: "bg-linear-to-b from-black/85 via-emerald-950/70 to-emerald-800/55",
+    overlay: "bg-linear-to-b from-black/80 via-emerald-950/65 to-emerald-800/50",
+    panelBg: "bg-emerald-950/90",
   },
 ];
 ---
@@ -50,48 +55,47 @@ const services = [
         Servicios
       </p>
       <div class="space-y-3">
-        <h2 class="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
+        <h2 class="text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
           Servicios especializados
         </h2>
         <span class="block h-1 w-16 rounded-full bg-blue-600"></span>
       </div>
-      <p class="mb-4 text-md leading-relaxed text-slate-600 sm:text-lg">
+      <p class="mb-4 text-lg leading-relaxed text-slate-600 sm:text-xl">
         Soluciones técnicas para operación en campo, con equipos certificados y
         personal capacitado según los requerimientos de cada proyecto.
       </p>
     </div>
-    <div class="grid gap-6 md:grid-cols-2">
+    <div class="space-y-6">
       {services.map((service, index) => (
         <article
-          class={`relative h-72 overflow-hidden rounded-md transition-all duration-300 ease-out ${
+          class={`overflow-hidden rounded-xl transition-all duration-300 ease-out ${
             index > 1 ? "hidden opacity-0" : "opacity-100"
           }`}
           data-service
         >
-          <img
-            src={service.image}
-            alt={`Servicio de ${service.title}`}
-            width="900"
-            height="900"
-            loading="lazy"
-            decoding="async"
-            class="absolute inset-0 h-full w-full object-cover"
-          />
-          <div class={`absolute inset-0 ${service.overlay}`}></div>
-          <div class="absolute inset-0 flex flex-col gap-3 px-7 py-7 text-white">
-            <div class="space-y-3">
-              <h3 class="m-0 text-3xl font-semibold leading-tight">{service.title}</h3>
-              <span class="text-base leading-relaxed text-white/85">{service.description}</span>
+          <div class={`grid min-h-40 overflow-hidden md:min-h-48 md:grid-cols-2 ${index % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}>
+            <div class="relative">
+              <img
+                src={service.image}
+                alt={`Servicio de ${service.title}`}
+                width="1200"
+                height="1200"
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover"
+              />
+              <div class={`absolute inset-0 ${service.overlay}`}></div>
             </div>
-            <button
-              type="button"
-              class="mt-1 inline-flex w-fit cursor-pointer items-center gap-2 rounded-md border border-white/70 bg-transparent px-4 py-2 text-sm font-semibold text-white/90 transition hover:bg-white/30 hover:text-white"
-            >
-              Ver más
-              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
-              </svg>
-            </button>
+            <div class={`flex items-center ${service.panelBg} px-6 py-6 text-white sm:px-8 md:px-9`}>
+              <div class="space-y-3">
+                <h3 class="m-0 text-2xl font-semibold leading-tight sm:text-3xl md:text-4xl">
+                  {service.title}
+                </h3>
+                <p class="text-sm leading-relaxed text-white/85 sm:text-base md:text-lg">
+                  {service.description}
+                </p>
+              </div>
+            </div>
           </div>
         </article>
       ))}
