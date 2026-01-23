@@ -1,0 +1,111 @@
+---
+const equipment = [
+  {
+    title: "Separador trifásico",
+    image:
+      "https://images.unsplash.com/photo-1513828646384-e4d8ec30d2bb?auto=format&fit=crop&w=1200&h=1200&q=80",
+  },
+  {
+    title: "Manifold de estrangulación",
+    image:
+      "https://images.unsplash.com/photo-1679234896355-cf40426d45c6?auto=format&fit=crop&w=1200&h=1200&q=80",
+  },
+  {
+    title: "Quemador vertical",
+    image:
+      "https://images.unsplash.com/photo-1710186815441-d5fbe082477d?auto=format&fit=crop&w=1200&h=1200&q=80",
+  },
+  {
+    title: "Frac tank / presas metálicas",
+    image:
+      "https://images.unsplash.com/photo-1571214309501-f9a2e6bec9fe?auto=format&fit=crop&w=1200&h=1200&q=80",
+  },
+  {
+    title: "Tuberías y conexiones",
+    image:
+      "https://images.unsplash.com/photo-1538474705339-e87de81450e8?auto=format&fit=crop&w=1200&h=1200&q=80",
+  },
+];
+---
+
+<section id="equipos" class="bg-blue-950 py-20">
+  <div class="mx-auto flex max-w-6xl flex-col gap-6 px-6 sm:px-8 lg:px-10">
+    <div class="space-y-4">
+      <p class="text-md font-semibold uppercase tracking-wide text-white/80">Equipos</p>
+      <div class="space-y-3">
+        <h2 class="text-4xl font-bold tracking-tight text-blue-200 sm:text-5xl">
+          Equipamientos en arrendamiento
+        </h2>
+        <span class="block h-1 w-16 bg-blue-300"></span>
+      </div>
+      <p class="text-lg leading-relaxed text-white/85 sm:text-xl">
+        Equipos disponibles para operación en campo con respaldo técnico y configuración según el
+        proyecto.
+      </p>
+    </div>
+
+    <div class="space-y-10">
+      {equipment.map((item, index) => (
+        <article
+          class={`overflow-hidden rounded-xl border border-white/15 bg-white/5 shadow-sm transition-all duration-300 ease-out ${
+            index > 1 ? "hidden opacity-0" : "opacity-100"
+          }`}
+          data-equipment
+        >
+          <div class={`grid min-h-40 overflow-hidden md:min-h-48 md:grid-cols-2 ${index % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}>
+            <div>
+              <img
+                src={item.image}
+                alt={`Equipo ${item.title}`}
+                width="1200"
+                height="1200"
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover"
+              />
+            </div>
+            <div class="flex items-center px-6 py-6 text-white sm:px-8 md:px-9">
+              <h3 class="m-0 text-2xl font-bold leading-tight text-white sm:text-3xl md:text-4xl">
+                {item.title}
+              </h3>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+    <button
+      type="button"
+      class="mx-auto rounded-md border border-white/30 bg-transparent px-5 py-2.5 text-sm text-white/80 transition hover:bg-white/10"
+      data-equipment-toggle
+    >
+      Mostrar todo
+    </button>
+  </div>
+</section>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.querySelector("[data-equipment-toggle]");
+    const cards = document.querySelectorAll("[data-equipment]");
+    if (toggle && cards.length > 2) {
+      toggle.addEventListener("click", () => {
+        const isExpanded = toggle.dataset.expanded === "true";
+        cards.forEach((card, index) => {
+          if (index > 1) {
+            if (isExpanded) {
+              card.classList.add("opacity-0");
+              setTimeout(() => card.classList.add("hidden"), 200);
+            } else {
+              card.classList.remove("hidden");
+              requestAnimationFrame(() => card.classList.remove("opacity-0"));
+            }
+          }
+        });
+        toggle.dataset.expanded = (!isExpanded).toString();
+        toggle.textContent = isExpanded ? "Mostrar todo" : "Mostrar menos";
+      });
+    } else if (toggle) {
+      toggle.classList.add("hidden");
+    }
+  });
+</script>

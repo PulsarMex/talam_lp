@@ -103,10 +103,10 @@ const phone = "+52 782 115 2175";
   const toggleHeader = () => {
     if (!header) return;
     if (window.scrollY > 100) {
-      header.classList.add("bg-blue-900/90", "shadow-lg", "backdrop-blur");
+      header.classList.add("bg-blue-900", "shadow-lg", "backdrop-blur");
       header.classList.remove("bg-transparent");
     } else {
-      header.classList.remove("bg-blue-900/90", "shadow-lg", "backdrop-blur");
+      header.classList.remove("bg-blue-900", "shadow-lg", "backdrop-blur");
     }
   };
   toggleHeader();
