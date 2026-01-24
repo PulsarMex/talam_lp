@@ -1,0 +1,47 @@
+---
+const differentiators = [
+  "Experiencia operativa en el ramo petrolero",
+  "Modalidad flexible: solo equipo o servicio completo",
+  "Capacidad de operación en campo y soporte técnico",
+  "Respuesta rápida y comunicación directa",
+  "Equipos adaptables a condiciones reales de trabajo",
+  "Compromiso con continuidad operativa y resultados",
+];
+
+const imageUrl =
+  "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=1200&q=80";
+---
+
+<section id="diferenciadores" class="bg-white py-20">
+  <div class="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-[0.95fr_1.05fr]">
+    <div class="rounded-3xl border border-slate-200/70 bg-white p-6 shadow-[0_24px_70px_-55px_rgba(15,23,42,0.35)]">
+      <img
+        src={imageUrl}
+        alt="Equipo en operación (imagen referencial)"
+        width="1200"
+        height="900"
+        loading="lazy"
+        decoding="async"
+        class="h-72 w-full rounded-md object-cover"
+      />
+    </div>
+    <div class="space-y-4">
+      <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-600">
+        Por qué Maquinarias TALAM
+      </div>
+      <p class="text-base leading-relaxed text-slate-600 sm:text-lg">
+        Elegir un proveedor confiable reduce riesgos operativos. En TALAM nos enfocamos en brindar
+        soluciones de medición con atención directa, capacidad de operación en campo y
+        adaptabilidad a condiciones reales de trabajo.
+      </p>
+      <ul class="grid gap-3 text-sm text-slate-600 sm:grid-cols-2">
+        {differentiators.map((item) => (
+          <li class="flex items-start gap-2 rounded-md border border-slate-200/70 bg-white p-3 shadow-sm">
+            <span class="mt-2 h-2 w-2 rounded-full bg-emerald-500"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

@@ -60,30 +60,32 @@ const valores = [
 ];
 ---
 
-<section id="nosotros" class="bg-gray-50 py-20">
-  <div class="mx-auto max-w-6xl px-6 sm:px-8 lg:px-10">
-    <div class="space-y-8">
-      <div class="space-y-4">
-        <p class="text-md font-semibold uppercase tracking-wide text-blue-600">Nosotros</p>
-        <div class="space-y-3">
-          <h2 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
-            Identidad corporativa
-          </h2>
-          <span class="block h-1 w-16 bg-blue-600"></span>
+<section id="nosotros" class="bg-gray-50 py-20 bg-grid">
+  <div class="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
+    <div class="grid gap-10 lg:grid-cols-2 lg:gap-12">
+      <!-- Columna izquierda: Contenido -->
+      <div class="space-y-8">
+        <div class="space-y-4">
+          <p class="text-md font-semibold uppercase tracking-wide text-blue-600">Nosotros</p>
+          <div class="space-y-3">
+            <h2 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+              Identidad corporativa
+            </h2>
+            <span class="block h-1 w-16 bg-blue-600"></span>
+          </div>
+          <p class="mb-6 text-lg leading-relaxed text-slate-600 sm:text-xl">
+            Conoce a Talam y la forma en que trabajamos: nuestra historia, propósito y los valores
+            que nos guían en cada servicio.
+          </p>
         </div>
-        <p class="mb-6 text-lg leading-relaxed text-slate-600 sm:text-xl">
-          Conoce a Talam y la forma en que trabajamos: nuestra historia, propósito y los valores
-          que nos guían en cada servicio.
-        </p>
-      </div>
 
-      <div class="flex flex-wrap gap-3" data-tabs>
+        <div class="flex flex-wrap gap-3" data-tabs>
         {
           tabs.map((tab) => (
             <button
               type="button"
               data-tab={tab.id}
-              class="group inline-flex items-center gap-3 rounded-md border border-gray-100 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition"
+              class="group inline-flex cursor-pointer items-center gap-3 rounded-md border border-gray-100 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
               aria-selected={tab.id === "quienes" ? "true" : "false"}
             >
               <span class="flex h-10 w-10 items-center justify-center rounded-md bg-blue-50 text-blue-600 transition">
@@ -162,7 +164,7 @@ const valores = [
       </div>
 
       <div
-        class="relative rounded-md border border-gray-100 bg-white p-10"
+        class="relative rounded-md border border-gray-100 bg-white p-8 shadow-soft"
         data-panels
       >
         <img
@@ -171,12 +173,12 @@ const valores = [
           aria-hidden="true"
           loading="lazy"
           decoding="async"
-          class="pointer-events-none absolute left-1/2 top-1/2 w-72 -translate-x-1/2 -translate-y-1/2 opacity-3 invert brightness-90 sm:w-80 lg:w-96"
+          class="pointer-events-none absolute right-6 top-6 z-10 h-auto w-16 opacity-20 invert brightness-50 sm:right-8 sm:w-20"
         />
         <div data-panel="quienes" class="relative z-10">
           <div class="flex items-center gap-4">
             <span
-              class="flex h-14 w-14 items-center justify-center rounded-md bg-blue-50 text-blue-600"
+              class="flex h-14 w-14 items-center justify-center rounded-md bg-gray-100 text-gray-500"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -192,12 +194,12 @@ const valores = [
                 ></path>
               </svg>
             </span>
-            <h3 class="text-2xl font-semibold text-slate-900 sm:text-4xl m-0">
+            <h3 class="text-xl font-semibold text-slate-900 sm:text-2xl m-0">
               Quiénes somos
             </h3>
           </div>
-          <span class="mx-auto my-7 block h-0.5 w-60 bg-gray-300/90"></span>
-          <p class="text-base leading-relaxed text-slate-600 sm:text-lg">
+          
+          <p class="text-sm m-0 mt-4 leading-relaxed text-slate-600 sm:text-xl">
             Maquinarias Talam es una empresa 100% mexicana fundada en 2024, enfocada en atender
             al sector energético (oil &amp; gas). Nos mantenemos a la vanguardia con tecnología y
             capacitación continua, elevando la calidad de nuestros servicios. Apoyamos proyectos
@@ -210,7 +212,7 @@ const valores = [
         <div data-panel="mision" class="relative z-10 hidden">
           <div class="flex items-center gap-4">
             <span
-              class="flex h-14 w-14 items-center justify-center rounded-md bg-blue-50 text-blue-600"
+              class="flex h-14 w-14 items-center justify-center rounded-md bg-gray-100 text-gray-500"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -227,25 +229,25 @@ const valores = [
                   d="M12 3.5V6m8.5 6h-2.5M12 18v2.5M6 12H3.5"></path>
               </svg>
             </span>
-            <h3 class="text-2xl font-semibold text-slate-900 sm:text-3xl m-0">
+            <h3 class="text-xl font-semibold text-slate-900 sm:text-2xl m-0">
               Misión
             </h3>
           </div>
-          <span class="mx-auto mt-6 block h-0.5 w-44 bg-slate-300/90"></span>
-          <p class="text-base leading-relaxed text-slate-600 sm:text-lg">
+          
+          <p class="text-sm m-0 mt-4 leading-relaxed text-slate-600 sm:text-xl">
             Proporcionar servicios de medición de pozos, automatización y
             control, suministro de productos químicos y servicios de
             intervención, con un enfoque en la calidad, seguridad y
             sostenibilidad, para satisfacer las necesidades de nuestros clientes
             y contribuir al desarrollo sostenible de la industria petrolera.
           </p>
-          <span class="mx-auto mt-6 block h-0.5 w-44 bg-slate-300/90"></span>
+          
         </div>
 
         <div data-panel="vision" class="relative z-10 hidden">
           <div class="flex items-center gap-4">
             <span
-              class="flex h-14 w-14 items-center justify-center rounded-md bg-blue-50 text-blue-600"
+              class="flex h-14 w-14 items-center justify-center rounded-md bg-gray-100 text-gray-500"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -265,24 +267,24 @@ const valores = [
                   d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
               </svg>
             </span>
-            <h3 class="text-2xl font-semibold text-slate-900 sm:text-3xl m-0">
+            <h3 class="text-xl font-semibold text-slate-900 sm:text-2xl m-0">
               Visión
             </h3>
           </div>
-          <span class="mx-auto mt-6 block h-0.5 w-44 bg-slate-300/90"></span>
-          <p class="text-base leading-relaxed text-slate-600 sm:text-lg">
+          
+          <p class="text-sm m-0 mt-4 leading-relaxed text-slate-600 sm:text-xl">
             Ser líderes en la industria de servicios de medición y
             automatización de pozos petroleros, ofreciendo soluciones integrales
             y personalizadas, con equipos y personal capacitado, garantizando
             calidad, seguridad, salud y protección ambiental.
           </p>
-          <span class="mx-auto mt-6 block h-0.5 w-44 bg-slate-300/90"></span>
+          
         </div>
 
         <div data-panel="valores" class="relative z-10 hidden">
           <div class="flex items-center gap-4">
             <span
-              class="flex h-14 w-14 items-center justify-center rounded-md bg-blue-50 text-blue-600"
+              class="flex h-14 w-14 items-center justify-center rounded-md bg-gray-100 text-gray-500"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -298,30 +300,43 @@ const valores = [
                 ></path>
               </svg>
             </span>
-            <h3 class="text-2xl font-semibold text-slate-900 sm:text-3xl m-0">
+            <h3 class="text-xl font-semibold text-slate-900 sm:text-2xl m-0">
               Valores
             </h3>
           </div>
           <ul
-            class="mt-5 grid gap-4 list-none p-0 text-sm text-slate-600 sm:grid-cols-2 lg:grid-cols-3"
+            class="mt-4 flex flex-col gap-2 list-none p-0 text-sm text-slate-600"
           >
             {
               valores.map((valor) => (
-                <li class="relative rounded-md border border-gray-100 bg-gray-50 px-3.5 py-2">
-                  <span class="absolute left-0 top-0 h-full w-1 rounded-l-md bg-emerald-500/70" />
-                  <div class="pl-2">
-                    <p class="text-base font-semibold text-slate-900 m-0">
-                      {valor.title}
-                    </p>
-                    <span class="text-sm leading-relaxed text-slate-600">
-                      {valor.description}
-                    </span>
+                <li class="flex items-start gap-2">
+                  <svg viewBox="0 0 24 24" class="mt-0.5 h-5 w-5 shrink-0 text-emerald-500" fill="currentColor">
+                    <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
+                  </svg>
+                  <div>
+                    <p class="text-sm font-semibold text-slate-900 m-0">{valor.title}</p>
+                    <p class="text-sm text-slate-600 m-0">{valor.description}</p>
                   </div>
                 </li>
               ))
             }
           </ul>
         </div>
+      </div>
+      </div>
+
+      <!-- Columna derecha: Imagen -->
+      <div class="relative hidden self-start overflow-hidden rounded-md shadow-soft-lg lg:block">
+        <img
+          src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1200&q=80"
+          alt="Equipos y servicios para el sector energético"
+          width="1200"
+          height="800"
+          loading="lazy"
+          decoding="async"
+          class="w-full object-cover"
+        />
+        <div class="absolute inset-0 bg-blue-950/60"></div>
       </div>
     </div>
   </div>
@@ -342,7 +357,7 @@ const valores = [
         button.classList.toggle("bg-white", !isActive);
         button.classList.toggle("text-slate-700", !isActive);
         const icon = button.querySelector("span");
-        icon?.classList.toggle("bg-blue-400", isActive);
+        icon?.classList.toggle("bg-blue-700", isActive);
         icon?.classList.toggle("text-white", isActive);
         icon?.classList.toggle("bg-blue-50", !isActive);
         icon?.classList.toggle("text-blue-600", !isActive);

@@ -10,7 +10,7 @@ const navItems = [
 const phone = "+52 782 115 2175";
 ---
 
-<header class="fixed inset-x-0 top-0 z-50 bg-transparent transition-colors duration-300" data-header>
+<header class="fixed inset-x-0 top-0 z-50 bg-transparent transition-all duration-300" data-header>
   <div class="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-6 sm:px-8 lg:px-10">
     <a href="/" class="flex items-center gap-3">
       <img
@@ -29,7 +29,7 @@ const phone = "+52 782 115 2175";
         navItems.map((item) => (
           <a
             href={item.href}
-            class="no-underline rounded-md px-3 py-2 text-white transition hover:bg-white/10"
+            class="no-underline rounded-md px-3 py-2 text-white/90 transition-all duration-300 hover:bg-white/10 hover:text-white"
           >
             {item.label}
           </a>
@@ -80,13 +80,13 @@ const phone = "+52 782 115 2175";
           </svg>
         </summary>
         <div
-          class="absolute right-0 mt-3 w-52 rounded-xl border border-blue-900/30 bg-blue-900/95 p-2 shadow-xl"
+          class="absolute right-0 mt-3 w-52 rounded-md border border-blue-900/30 bg-blue-900/95 p-2 shadow-xl"
         >
           <nav class="flex flex-col text-sm font-semibold text-white">
             {navItems.map((item) => (
               <a
                 href={item.href}
-                class="no-underline rounded-md px-3 py-2 text-white transition hover:bg-white/10"
+                class="no-underline rounded-md px-3 py-2 text-white/90 transition-all duration-300 hover:bg-white/10 hover:text-white"
               >
                 {item.label}
               </a>
@@ -100,17 +100,43 @@ const phone = "+52 782 115 2175";
 
 <script is:inline>
   const header = document.querySelector("[data-header]");
-  const toggleHeader = () => {
+  let lastScrollY = 0;
+  let ticking = false;
+
+  const updateHeader = () => {
     if (!header) return;
-    if (window.scrollY > 100) {
+    const currentScrollY = window.scrollY;
+
+    // Aplicar fondo cuando hay scroll
+    if (currentScrollY > 100) {
       header.classList.add("bg-blue-900", "shadow-lg", "backdrop-blur");
       header.classList.remove("bg-transparent");
     } else {
       header.classList.remove("bg-blue-900", "shadow-lg", "backdrop-blur");
     }
+
+    // Ocultar/mostrar según dirección del scroll
+    if (currentScrollY > lastScrollY && currentScrollY > 80) {
+      // Scroll hacia abajo - ocultar header
+      header.style.transform = "translateY(-100%)";
+    } else {
+      // Scroll hacia arriba - mostrar header
+      header.style.transform = "translateY(0)";
+    }
+
+    lastScrollY = currentScrollY;
+    ticking = false;
   };
-  toggleHeader();
-  window.addEventListener("scroll", toggleHeader, { passive: true });
+
+  const onScroll = () => {
+    if (!ticking) {
+      requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  };
+
+  updateHeader();
+  window.addEventListener("scroll", onScroll, { passive: true });
 
   const menu = document.getElementById("mobile-menu");
   if (menu) {

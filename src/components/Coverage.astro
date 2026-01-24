@@ -1,0 +1,41 @@
+---
+const zones = ["Poza Rica", "Veracruz (Capital)", "Villahermosa"];
+---
+
+<section id="cobertura" class="bg-slate-50 py-20">
+  <div class="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-[1fr_1fr]">
+    <div class="space-y-4">
+      <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-600">
+        Cobertura operativa
+      </div>
+      <p class="text-base leading-relaxed text-slate-600 sm:text-lg">
+        Atendemos operaciones en puntos estratégicos del sureste de México y zonas de actividad
+        petrolera. Podemos evaluar otros sitios de operación de acuerdo con el proyecto y
+        condiciones del servicio.
+      </p>
+      <ul class="space-y-2 text-sm text-slate-600">
+        {zones.map((zone) => (
+          <li class="flex items-start gap-2">
+            <span class="mt-2 h-2 w-2 rounded-full bg-emerald-500"></span>
+            <span>{zone}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="text-sm text-slate-600">
+        Si su operación es en otra zona, podemos revisarla y proponer una solución acorde.
+      </p>
+    </div>
+    <div class="rounded-3xl border border-slate-200/70 bg-white p-6 shadow-[0_24px_70px_-55px_rgba(15,23,42,0.35)]">
+      <div class="flex items-center justify-between text-sm font-semibold text-slate-700">
+        <span>Mapa regional (referencial)</span>
+        <span class="text-xs font-normal text-slate-500">Sustituible por mapa real</span>
+      </div>
+      <div class="mt-4 h-64 rounded-md bg-[radial-gradient(circle_at_top,_#c7d2fe,_#f8fafc)]">
+        <div class="flex h-full flex-col items-center justify-center text-xs text-slate-500">
+          <span>Mapa o imagen contextual</span>
+          <span>con marcadores regionales</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
