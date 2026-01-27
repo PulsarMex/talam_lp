@@ -1,0 +1,115 @@
+---
+---
+
+<div id="modal" class="modal fixed inset-0 z-100 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-[opacity,visibility] duration-300 ease-out sm:p-6" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+  <div class="modal-bg absolute inset-0 bg-slate-900/80" data-modal-close tabindex="-1" aria-hidden="true"></div>
+  <div class="modal-panel relative w-full max-w-xl max-h-[90vh] overflow-y-auto rounded-md border border-slate-200/80 bg-white shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25),0_0_0_1px_rgba(0,0,0,0.05)] transition-all duration-300 ease-out scale-[0.96]">
+    <div class="h-1 w-full rounded-t-md bg-linear-to-r from-blue-600 to-blue-500"></div>
+    <div class="relative">
+      <div class="absolute right-4 top-4 z-10">
+        <button type="button" class="modal-close flex h-10 w-10 cursor-pointer items-center justify-center rounded-md border border-slate-200/80 bg-white/90 text-slate-400 shadow-sm transition-all duration-200 hover:border-slate-300 hover:bg-white hover:text-slate-600 hover:shadow" data-modal-close aria-label="Cerrar">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="px-8 pb-8 pt-6 sm:px-10 sm:pb-10 sm:pt-8">
+        <h2 id="modal-title" class="pr-12 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl"></h2>
+        <span class="mt-3 block h-0.5 w-14 rounded-full bg-blue-500/80"></span>
+        <div class="modal-body mt-6 text-base leading-relaxed text-slate-600 sm:text-lg"></div>
+        <div class="modal-specs mt-6 hidden rounded-md border border-slate-100 bg-slate-50/80 p-5 sm:p-6"></div>
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a href="#cotizar" class="modal-cta inline-flex items-center gap-2.5 rounded-md bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 no-underline transition-all duration-200 hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-xl hover:shadow-blue-600/30">
+            Cotizar
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+          <button type="button" class="cursor-pointer rounded-md border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-600 transition-all duration-200 hover:border-slate-300 hover:bg-slate-50 hover:text-slate-700" data-modal-close>
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .modal.is-open {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+  .modal.is-open .modal-panel {
+    transform: scale(1);
+  }
+  .modal:not(.is-open) {
+    visibility: hidden;
+  }
+</style>
+
+<script is:inline>
+(function () {
+  var modal = document.getElementById("modal");
+  var titleEl = document.getElementById("modal-title");
+  var bodyEl = modal && modal.querySelector(".modal-body");
+  var specsEl = modal && modal.querySelector(".modal-specs");
+
+  function esc(s) {
+    var d = document.createElement("div");
+    d.textContent = s;
+    return d.innerHTML;
+  }
+
+  function openModal(title, description, specsJson) {
+    if (!modal || !titleEl || !bodyEl) return;
+    titleEl.textContent = title || "";
+    bodyEl.innerHTML = description ? "<p class=\"leading-relaxed text-slate-600\">" + esc(description) + "</p>" : "";
+    if (specsEl) {
+      try {
+        var specs = specsJson ? JSON.parse(specsJson) : [];
+        if (Array.isArray(specs) && specs.length > 0) {
+          specsEl.classList.remove("hidden");
+          specsEl.innerHTML = "<p class=\"mb-4 text-xs font-semibold uppercase tracking-wider text-blue-600\">Especificaciones</p><dl class=\"grid grid-cols-2 gap-x-6 gap-y-3 text-sm\">" + specs.map(function (s) {
+            return "<dt class=\"text-slate-500\">" + esc(s.label) + "</dt><dd class=\"font-semibold text-slate-800\">" + esc(s.value) + "</dd>";
+          }).join("") + "</dl>";
+        } else {
+          specsEl.classList.add("hidden");
+          specsEl.innerHTML = "";
+        }
+      } catch (_) {
+        specsEl.classList.add("hidden");
+        specsEl.innerHTML = "";
+      }
+    }
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    var btn = modal.querySelector(".modal-close");
+    if (btn && btn.focus) btn.focus();
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest("[data-modal-open]");
+    if (t) {
+      e.preventDefault();
+      openModal(t.getAttribute("data-modal-title") || "", t.getAttribute("data-modal-description") || "", t.getAttribute("data-modal-specs") || "");
+      return;
+    }
+    if (e.target.closest("[data-modal-close]") || e.target.classList.contains("modal-bg") || e.target.closest(".modal-cta")) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal && modal.classList.contains("is-open")) closeModal();
+  });
+})();
+</script>

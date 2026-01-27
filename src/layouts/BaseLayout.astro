@@ -1,4 +1,6 @@
 ---
+import ContentModal from "../components/ContentModal.astro";
+
 const {
   title = "TALAM | Maquinaria",
   description = "TALAM: maquinaria y soluciones para proyectos industriales.",
@@ -43,6 +45,7 @@ const ogImageURL = ogImage ? new URL(ogImage, siteURL).href : new URL("/images/t
   </head>
   <body class="font-sans antialiased">
     <slot />
+    <ContentModal />
   </body>
 </html>
 

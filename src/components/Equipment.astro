@@ -67,7 +67,7 @@ const equipment = [
 ---
 
 <section id="equipos" class="bg-gray-50 py-20">
-  <div class="mx-auto flex max-w-6xl flex-col gap-8 px-6 sm:px-8 lg:px-10">
+  <div class="mx-auto flex max-w-7xl flex-col gap-8 px-6 sm:px-8 lg:px-10">
     <div class="space-y-4">
       <p class="text-md font-semibold uppercase tracking-wide text-blue-600">Equipos</p>
       <div class="space-y-3">
@@ -95,28 +95,16 @@ const equipment = [
             <img src={item.image} alt={`Equipo ${item.title}`} width="600" height="600" loading="lazy" decoding="async" fetchpriority={item.isFeatured ? "high" : "auto"} class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
             <div class={`absolute inset-0 transition-opacity duration-300 ${item.overlay}`}></div>
           </div>
-          <div class="absolute inset-x-0 bottom-0 z-10 max-h-[75%] md:max-h-none overflow-y-auto md:overflow-y-visible flex flex-col space-y-2 sm:space-y-3 p-4 sm:p-5 md:p-6">
-            <h3 class={`m-0 text-xl font-bold leading-tight sm:text-2xl md:text-3xl lg:text-4xl ${item.titleColor}`}>{item.title}</h3>
-            <span class={`block h-0.5 w-16 mt-2 sm:mt-3 ${item.lineColor}`}></span>
-            <p class="m-0 text-xs leading-relaxed text-white/85 sm:text-sm md:text-base lg:text-lg">{item.description}</p>
-            {item.specifications && (
-              <div class={`mt-2 sm:mt-3 rounded-md ${item.specBg || 'bg-slate-900/70'} p-3 sm:p-4 md:p-5`}>
-                <div class="grid grid-cols-2 gap-x-2 gap-y-1.5 sm:gap-x-3 sm:gap-y-2.5 text-[10px] sm:text-xs md:text-sm">
-                  {item.specifications.map((spec) => (
-                    <div class="flex flex-col gap-0.5 sm:gap-1">
-                      <span class="text-white/70 leading-tight">{spec.label}</span>
-                      <span class={`font-semibold ${item.titleColor} leading-tight`}>{spec.value}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-            <a href="#cotizar" class="cursor-pointer no-underline mt-3 inline-flex w-fit items-center gap-2 rounded-md border border-white/70 bg-transparent px-5 py-2.5 text-sm font-semibold text-white/90 transition-all duration-300 hover:bg-white/20 hover:text-white hover:border-white hover:-translate-y-0.5">
+          <div class="absolute inset-x-0 bottom-0 z-10 flex flex-col justify-end space-y-3 p-4 sm:p-5 md:p-6">
+            <h3 class={`m-0 text-2xl font-bold leading-tight sm:text-3xl md:text-4xl ${item.titleColor}`}>{item.title}</h3>
+            <span class={`block h-0.5 w-16 mt-3 rounded-full ${item.lineColor}`}></span>
+            <p class="m-0 text-sm leading-relaxed text-white/85 sm:text-base md:text-lg">{item.description}</p>
+            <button type="button" class="cursor-pointer mt-2 inline-flex w-fit items-center gap-2 rounded-md border border-white/70 bg-transparent px-5 py-2.5 text-sm font-semibold text-white/90 transition-all duration-300 hover:bg-white/20 hover:text-white hover:border-white hover:-translate-y-0.5" data-modal-open data-modal-title={item.title} data-modal-description={item.description} data-modal-specs={JSON.stringify(item.specifications || [])}>
               Ver más
               <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
               </svg>
-            </a>
+            </button>
           </div>
         </article>
       ))}
