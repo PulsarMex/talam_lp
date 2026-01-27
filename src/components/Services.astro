@@ -2,63 +2,57 @@
 const services = [
   {
     title: "Medición en circuito cerrado",
-    description:
-      "Medición de corrientes y pozos de producción en circuito cerrado con equipo separador trifásico, según requerimientos del cliente.",
-    image:
-      "https://images.unsplash.com/photo-1472141521881-95d0e87e2e39?auto=format&fit=crop&w=1200&h=1200&q=80",
+    description: "Medición de corrientes y pozos de producción en circuito cerrado con equipo separador trifásico, según requerimientos del cliente.",
+    image: "https://images.unsplash.com/photo-1472141521881-95d0e87e2e39?auto=format&fit=crop&w=1200&h=1200&q=80",
     overlay: "bg-teal-900/60",
     panelBg: "bg-teal-950/90",
     titleColor: "text-teal-200",
+    lineColor: "bg-teal-200",
   },
   {
     title: "Medición a la atmósfera",
-    description:
-      "Medición con manifold de estrangulación, separador trifásico, frac tank o presas metálicas y quemador vertical.",
-    image:
-      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&h=1200&q=80",
+    description: "Medición con manifold de estrangulación, separador trifásico, frac tank o presas metálicas y quemador vertical.",
+    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&h=1200&q=80",
     overlay: "bg-amber-900/60",
     panelBg: "bg-amber-950/90",
     titleColor: "text-amber-200",
+    lineColor: "bg-amber-200",
   },
   {
     title: "Servicio de well testing",
-    description:
-      "Well testing con manifold de estrangulación, equipo separador trifásico, frac tank o presas metálicas y quemador vertical, con personal capacitado.",
-    image:
-      "https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1200&h=1200&q=80",
+    description: "Well testing con manifold de estrangulación, equipo separador trifásico, frac tank o presas metálicas y quemador vertical, con personal capacitado.",
+    image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1200&h=1200&q=80",
     overlay: "bg-violet-900/60",
     panelBg: "bg-violet-950/90",
     titleColor: "text-violet-200",
+    lineColor: "bg-violet-200",
   },
   {
     title: "Mantenimiento de equipos",
-    description:
-      "Mantenimiento de manifold de estrangulación, presas metálicas o frac tank, separador trifásico, quemador vertical, tuberías, válvulas y accesorios.",
-    image:
-      "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&h=1200&q=80",
+    description: "Mantenimiento de manifold de estrangulación, presas metálicas o frac tank, separador trifásico, quemador vertical, tuberías, válvulas y accesorios.",
+    image: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&h=1200&q=80",
     overlay: "bg-slate-900/60",
     panelBg: "bg-slate-900/90",
     titleColor: "text-slate-100",
+    lineColor: "bg-slate-100",
   },
   {
     title: "Inyección y suministro de químicos",
-    description:
-      "Servicio especializado de inyección y suministro de químicos según los requerimientos del proyecto.",
-    image:
-      "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1200&h=1200&q=80",
+    description: "Servicio especializado de inyección y suministro de químicos según los requerimientos del proyecto.",
+    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1200&h=1200&q=80",
     overlay: "bg-emerald-900/60",
     panelBg: "bg-emerald-950/90",
     titleColor: "text-emerald-200",
+    lineColor: "bg-emerald-200",
   },
   {
     title: "Pruebas no destructivas",
-    description:
-      "Inspecciones y pruebas no destructivas para asegurar integridad y confiabilidad en campo.",
-    image:
-      "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&h=1200&q=80",
+    description: "Inspecciones y pruebas no destructivas para asegurar integridad y confiabilidad en campo.",
+    image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&h=1200&q=80",
     overlay: "bg-slate-900/60",
     panelBg: "bg-slate-900/90",
     titleColor: "text-slate-100",
+    lineColor: "bg-slate-100",
   },
 ];
 ---
@@ -66,61 +60,30 @@ const services = [
 <section id="servicios" class="bg-white py-20 bg-dots">
   <div class="mx-auto flex max-w-6xl flex-col gap-6 px-6 sm:px-8 lg:px-10">
     <div class="space-y-4">
-      <p class="text-md font-semibold uppercase tracking-wide text-blue-600">
-        Servicios
-      </p>
+      <p class="text-md font-semibold uppercase tracking-wide text-blue-600">Servicios</p>
       <div class="space-y-3">
-        <h2 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-          Servicios especializados
-        </h2>
+        <h2 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">Servicios especializados</h2>
         <span class="block h-1 w-16 rounded-full bg-blue-600"></span>
       </div>
       <p class="mb-4 text-lg leading-relaxed text-slate-600 sm:text-xl">
-        Soluciones técnicas para operación en campo, con equipos certificados y
-        personal capacitado según los requerimientos de cada proyecto.
+        Soluciones técnicas para operación en campo, con equipos certificados y personal capacitado según los requerimientos de cada proyecto.
       </p>
     </div>
     <div class="space-y-10">
       {services.map((service, index) => (
-        <article
-          class={`card-lift group relative overflow-hidden rounded-md shadow-soft transition-all duration-300 ease-out ${
-            index > 1 ? "hidden opacity-0" : "opacity-100"
-          }`}
-          data-service
-        >
-          <img
-            src="/images/talam-logo-white.png"
-            alt=""
-            width="60"
-            height="17"
-            class="pointer-events-none absolute right-4 top-4 z-10 h-auto w-16 opacity-25 sm:right-6 sm:w-20"
-            aria-hidden="true"
-          />
+        <article class={`card-lift group relative overflow-hidden rounded-md shadow-soft ${index > 1 ? "hidden opacity-0" : "opacity-100"}`} data-service>
+          <img src="/images/talam-logo-white.png" alt="" width="60" height="17" class="pointer-events-none absolute right-4 top-4 z-10 h-auto w-16 opacity-25 sm:right-6 sm:w-20" aria-hidden="true" />
           <div class={`grid min-h-40 overflow-hidden md:min-h-48 md:grid-cols-2 ${index % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}>
             <div class="relative overflow-hidden">
-              <img
-                src={service.image}
-                alt={`Servicio de ${service.title}`}
-                width="1200"
-                height="1200"
-                loading="lazy"
-                decoding="async"
-                class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-              />
+              <img src={service.image} alt={`Servicio de ${service.title}`} width="1200" height="1200" loading={index < 2 ? "eager" : "lazy"} decoding="async" fetchpriority={index === 0 ? "high" : "auto"} class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
               <div class={`absolute inset-0 transition-opacity duration-300 ${service.overlay}`}></div>
             </div>
             <div class={`flex items-center ${service.panelBg} px-6 py-6 text-white sm:px-8 md:px-9`}>
               <div class="space-y-3">
-                <h3 class={`m-0 text-2xl font-bold leading-tight sm:text-3xl md:text-4xl ${service.titleColor}`}>
-                  {service.title}
-                </h3>
-                <p class="text-sm leading-relaxed text-white/85 sm:text-base md:text-lg">
-                  {service.description}
-                </p>
-                <button
-                  type="button"
-                  class="mt-2 inline-flex w-fit cursor-pointer items-center gap-2 rounded-md border border-white/70 bg-transparent px-5 py-2.5 text-sm font-semibold text-white/90 transition-all duration-300 hover:bg-white/20 hover:text-white hover:border-white hover:-translate-y-0.5"
-                >
+                <h3 class={`m-0 text-2xl font-bold leading-tight sm:text-3xl md:text-4xl ${service.titleColor}`}>{service.title}</h3>
+                <span class={`block h-0.5 w-16 mt-3 ${service.lineColor}`}></span>
+                <p class="text-sm leading-relaxed text-white/85 sm:text-base md:text-lg">{service.description}</p>
+                <button type="button" class="cursor-pointer mt-2 inline-flex w-fit items-center gap-2 rounded-md border border-white/70 bg-transparent px-5 py-2.5 text-sm font-semibold text-white/90 transition-all duration-300 hover:bg-white/20 hover:text-white hover:border-white hover:-translate-y-0.5">
                   Ver más
                   <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
@@ -132,11 +95,7 @@ const services = [
         </article>
       ))}
     </div>
-    <button
-      type="button"
-      class="mx-auto cursor-pointer rounded-md border border-gray-200 bg-transparent px-5 py-2.5 text-sm font-medium text-slate-600 transition-all duration-300 hover:bg-gray-100 hover:border-gray-300 hover:-translate-y-0.5 hover:shadow-md"
-      data-services-toggle
-    >
+    <button type="button" class="cursor-pointer mx-auto rounded-md border border-gray-200 bg-transparent px-5 py-2.5 text-sm font-medium text-slate-600 transition-all duration-300 hover:bg-gray-100 hover:border-gray-300 hover:-translate-y-0.5 hover:shadow-md" data-services-toggle>
       Mostrar todo
     </button>
   </div>

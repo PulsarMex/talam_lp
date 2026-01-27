@@ -8,7 +8,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(m
   href={whatsappUrl}
   target="_blank"
   rel="noopener noreferrer"
-  class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-soft-lg transition-all duration-300 hover:scale-110 hover:bg-emerald-400 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-emerald-300/50 sm:h-16 sm:w-16"
+  class="no-underline fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-soft-lg transition-all duration-300 hover:scale-110 hover:bg-emerald-400 hover:shadow-2xl sm:h-16 sm:w-16"
   aria-label="Contactar por WhatsApp"
 >
   <svg viewBox="0 0 24 24" class="h-7 w-7 sm:h-8 sm:w-8" fill="currentColor">
@@ -18,14 +18,8 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(m
 
 <style>
   @keyframes pulse-ring {
-    0% {
-      transform: scale(1);
-      opacity: 0.8;
-    }
-    100% {
-      transform: scale(1.5);
-      opacity: 0;
-    }
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.5); opacity: 0; }
   }
   
   a::before {

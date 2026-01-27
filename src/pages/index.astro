@@ -11,9 +11,31 @@ import Footer from "../components/Footer.astro";
 const title = "TALAM | Soluciones de medición petrolera";
 const description =
   "Maquinarias TALAM ofrece renta de equipo de medición y servicio completo en campo para operaciones petroleras en el sureste de México.";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "TALAM Maquinaria y Suministros",
+  description: description,
+  url: "https://talam.mx",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+52-782-115-2175",
+    contactType: "Operaciones",
+    email: "operaciones@talam.mx",
+    areaServed: "MX",
+    availableLanguage: "Spanish",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "MX",
+  },
+  sameAs: [],
+};
 ---
 
 <BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   <Header />
   <main class="bg-white text-slate-900">
     <Hero />

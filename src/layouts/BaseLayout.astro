@@ -3,9 +3,12 @@ const {
   title = "TALAM | Maquinaria",
   description = "TALAM: maquinaria y soluciones para proyectos industriales.",
   canonicalURL,
+  ogImage,
 } = Astro.props;
 
 const canonical = canonicalURL ?? Astro.url;
+const siteURL = Astro.site ?? canonical.origin;
+const ogImageURL = ogImage ? new URL(ogImage, siteURL).href : new URL("/images/talam-logo.png", siteURL).href;
 ---
 
 <!doctype html>
@@ -15,16 +18,28 @@ const canonical = canonicalURL ?? Astro.url;
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="canonical" href={canonical} />
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="TALAM Maquinaria y Suministros" />
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_MX" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
 
     <title>{title}</title>
 
     <link rel="icon" href="/favicon.svg" />
-    
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
   </head>
   <body class="font-sans antialiased">
     <slot />
@@ -32,6 +47,5 @@ const canonical = canonicalURL ?? Astro.url;
 </html>
 
 <style>
-  /* Import global vía CSS bundling */
   @import "../styles/global.css";
 </style>

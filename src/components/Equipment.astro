@@ -2,72 +2,124 @@
 const equipment = [
   {
     title: "Separador trifásico",
-    image:
-      "https://images.unsplash.com/photo-1513828646384-e4d8ec30d2bb?auto=format&fit=crop&w=1200&h=1200&q=80",
+    description: "Equipo para medición en circuito cerrado según requerimientos del proyecto.",
+    image: "https://images.unsplash.com/photo-1513828646384-e4d8ec30d2bb?auto=format&fit=crop&w=1200&h=1200&q=80",
+    overlay: "bg-slate-900/70",
+    titleColor: "text-slate-200",
+    lineColor: "bg-slate-200",
+    specBg: "bg-slate-900/85",
+    isFeatured: true,
+    specifications: [
+      { label: "Presión de operación", value: "2,000 psi" },
+      { label: "Temperatura máxima", value: "230°F" },
+      { label: "Capacidad de flujo de líquido", value: "2,500 BPD" },
+      { label: "Capacidad de flujo de gas", value: "20 MMPCD" },
+    ],
   },
   {
     title: "Manifold de estrangulación",
-    image:
-      "https://images.unsplash.com/photo-1679234896355-cf40426d45c6?auto=format&fit=crop&w=1200&h=1200&q=80",
+    description: "Manifold y accesorios para medición y control de flujo en campo.",
+    image: "https://images.unsplash.com/photo-1679234896355-cf40426d45c6?auto=format&fit=crop&w=1200&h=1200&q=80",
+    overlay: "bg-amber-900/60",
+    titleColor: "text-amber-200",
+    lineColor: "bg-amber-200",
   },
   {
     title: "Quemador vertical",
-    image:
-      "https://images.unsplash.com/photo-1710186815441-d5fbe082477d?auto=format&fit=crop&w=1200&h=1200&q=80",
+    description: "Quemadores para combustión segura en operaciones de well testing.",
+    image: "https://images.unsplash.com/photo-1710186815441-d5fbe082477d?auto=format&fit=crop&w=1200&h=1200&q=80",
+    overlay: "bg-rose-900/60",
+    titleColor: "text-rose-200",
+    lineColor: "bg-rose-200",
+    specBg: "bg-rose-900/80",
+    specifications: [
+      { label: "Presión máxima de trabajo", value: "15,000 psi" },
+      { label: "Diámetro", value: "2 plg" },
+      { label: "Tipo de válvulas", value: "Tapón balanceado" },
+      { label: "Número de válvulas", value: "4 válvulas" },
+      { label: "Conexión de entrada", value: "2 plg Fig. 1502 M" },
+      { label: "Conexión de salida", value: "2 plg Fig. 1502 F" },
+      { label: "Tamaño de estrangulador", value: "Variable" },
+    ],
   },
   {
     title: "Frac tank / presas metálicas",
-    image:
-      "https://images.unsplash.com/photo-1571214309501-f9a2e6bec9fe?auto=format&fit=crop&w=1200&h=1200&q=80",
+    description: "Presas y contenedores para manejo de fluidos en campo.",
+    image: "https://images.unsplash.com/photo-1571214309501-f9a2e6bec9fe?auto=format&fit=crop&w=1200&h=1200&q=80",
+    overlay: "bg-green-900/60",
+    titleColor: "text-green-200",
+    lineColor: "bg-green-200",
+    specBg: "bg-green-900/80",
+    specifications: [
+      { label: "Capacidad", value: "80 m³" },
+      { label: "Velocidad de almacenamiento", value: "500 BPD" },
+    ],
   },
   {
     title: "Tuberías y conexiones",
-    image:
-      "https://images.unsplash.com/photo-1538474705339-e87de81450e8?auto=format&fit=crop&w=1200&h=1200&q=80",
+    description: "Tuberías, válvulas y accesorios para instalaciones en campo.",
+    image: "https://images.unsplash.com/photo-1538474705339-e87de81450e8?auto=format&fit=crop&w=1200&h=1200&q=80",
+    overlay: "bg-zinc-700/60",
+    titleColor: "text-white",
+    lineColor: "bg-white",
   },
 ];
 ---
 
-<section id="equipos" class="bg-blue-950 py-20 bg-dots-light">
+<section id="equipos" class="bg-gray-100 py-20">
   <div class="mx-auto flex max-w-6xl flex-col gap-8 px-6 sm:px-8 lg:px-10">
     <div class="space-y-4">
-      <p class="text-md font-semibold uppercase tracking-wide text-blue-300">Equipos</p>
+      <p class="text-md font-semibold uppercase tracking-wide text-blue-600">Equipos</p>
       <div class="space-y-3">
-        <h2 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
-          Equipos en arrendamiento
-        </h2>
-        <span class="block h-1 w-16 bg-blue-400"></span>
+        <h2 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">Equipos en arrendamiento</h2>
+        <span class="block h-1 w-16 rounded-full bg-blue-600"></span>
       </div>
-      <p class="text-lg leading-relaxed text-blue-100/85 sm:text-xl">
-        Equipos disponibles para operación en campo con respaldo técnico y configuración según el
-        proyecto.
+      <p class="mb-4 text-lg leading-relaxed text-slate-600 sm:text-xl">
+        Equipos disponibles para operación en campo con respaldo técnico y configuración según el proyecto.
       </p>
     </div>
 
-    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {equipment.map((item, index) => (
-        <article
-          class="group relative aspect-square overflow-hidden rounded-md shadow-soft-lg"
-          data-equipment
-        >
-          <img
-            src={item.image}
-            alt={`Equipo ${item.title}`}
-            width="600"
-            height="600"
-            loading="lazy"
-            decoding="async"
-            class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-blue-950/90 via-blue-950/30 to-transparent transition-opacity duration-300 group-hover:opacity-80"></div>
-          <div class="absolute inset-x-0 bottom-0 p-5 sm:p-6 transition-transform duration-300 group-hover:translate-y-0">
-            <h3 class="m-0 text-lg font-bold leading-tight text-white sm:text-xl">
-              {item.title}
-            </h3>
+    <div class="grid gap-5 sm:grid-cols-2">
+      {equipment.map((item) => (
+        <article class={`card-lift group relative aspect-square overflow-hidden rounded-md ${item.isFeatured ? 'shadow-[0_8px_30px_rgba(250,204,21,0.5)] ring-2 ring-amber-400/60' : 'shadow-soft-lg'}`} data-equipment>
+          {item.isFeatured && (
+            <div class="absolute left-4 top-4 z-20 flex items-center gap-2 rounded-full bg-amber-500/95 px-3 py-1.5 text-sm font-bold text-white shadow-lg backdrop-blur-sm">
+              <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current" aria-hidden="true">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              <span>Réntalo completo</span>
+            </div>
+          )}
+          <img src="/images/talam-logo-white.png" alt="" width="60" height="17" class="pointer-events-none absolute right-4 top-4 z-10 h-auto w-16 opacity-25 sm:right-6 sm:w-20" aria-hidden="true" />
+          <div class="relative h-full w-full overflow-hidden">
+            <img src={item.image} alt={`Equipo ${item.title}`} width="600" height="600" loading="lazy" decoding="async" fetchpriority={item.isFeatured ? "high" : "auto"} class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
+            <div class={`absolute inset-0 transition-opacity duration-300 ${item.overlay}`}></div>
+          </div>
+          <div class="absolute inset-x-0 bottom-0 z-10 flex flex-col space-y-3 p-5 sm:p-6">
+            <h3 class={`m-0 text-2xl font-bold leading-tight sm:text-3xl md:text-4xl ${item.titleColor}`}>{item.title}</h3>
+            <span class={`block h-0.5 w-16 mt-3 ${item.lineColor}`}></span>
+            <p class="m-0 text-sm leading-relaxed text-white/85 sm:text-base md:text-lg">{item.description}</p>
+            {item.specifications && (
+              <div class={`mt-3 rounded-md ${item.specBg || 'bg-slate-900/70'} p-4 sm:p-5`}>
+                <div class="grid grid-cols-2 gap-x-3 gap-y-2.5 text-xs sm:text-sm">
+                  {item.specifications.map((spec) => (
+                    <div class="flex flex-col gap-1">
+                      <span class="text-white/70">{spec.label}</span>
+                      <span class={`font-semibold ${item.titleColor}`}>{spec.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            <a href="#cotizar" class="cursor-pointer no-underline mt-3 inline-flex w-fit items-center gap-2 rounded-md border border-white/70 bg-transparent px-5 py-2.5 text-sm font-semibold text-white/90 transition-all duration-300 hover:bg-white/20 hover:text-white hover:border-white hover:-translate-y-0.5">
+              Ver más
+              <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
           </div>
         </article>
       ))}
     </div>
   </div>
 </section>
-
