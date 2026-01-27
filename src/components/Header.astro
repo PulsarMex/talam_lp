@@ -56,7 +56,7 @@ const phone = "+52 782 115 2175";
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
           </svg>
         </summary>
-        <div class="absolute right-0 mt-3 w-52 rounded-md border border-blue-900/30 bg-blue-900/95 p-2 shadow-xl">
+        <div class="absolute right-0 mt-3 w-52 rounded-md border border-slate-700/30 bg-slate-900/95 p-2 shadow-xl">
           <nav class="flex flex-col text-sm font-semibold text-white">
             {navItems.map((item) => (
               <a href={item.href} class="no-underline rounded-md px-3 py-2 text-white/90 transition-all duration-300 hover:bg-white/10 hover:text-white">
@@ -80,10 +80,10 @@ const phone = "+52 782 115 2175";
     const currentScrollY = window.scrollY;
 
     if (currentScrollY > 100) {
-      header.classList.add("bg-blue-900", "shadow-lg", "backdrop-blur");
+      header.classList.add("bg-slate-900", "shadow-lg", "backdrop-blur");
       header.classList.remove("bg-transparent");
     } else {
-      header.classList.remove("bg-blue-900", "shadow-lg", "backdrop-blur");
+      header.classList.remove("bg-slate-900", "shadow-lg", "backdrop-blur");
     }
 
     if (currentScrollY > lastScrollY && currentScrollY > 80) {
