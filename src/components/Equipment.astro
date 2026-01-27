@@ -66,7 +66,7 @@ const equipment = [
 ];
 ---
 
-<section id="equipos" class="bg-gray-100 py-20">
+<section id="equipos" class="bg-gray-50 py-20">
   <div class="mx-auto flex max-w-6xl flex-col gap-8 px-6 sm:px-8 lg:px-10">
     <div class="space-y-4">
       <p class="text-md font-semibold uppercase tracking-wide text-blue-600">Equipos</p>
@@ -95,7 +95,7 @@ const equipment = [
             <img src={item.image} alt={`Equipo ${item.title}`} width="600" height="600" loading="lazy" decoding="async" fetchpriority={item.isFeatured ? "high" : "auto"} class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
             <div class={`absolute inset-0 transition-opacity duration-300 ${item.overlay}`}></div>
           </div>
-          <div class="absolute inset-x-0 bottom-0 z-10 max-h-[75%] overflow-y-auto flex flex-col space-y-2 sm:space-y-3 p-4 sm:p-5 md:p-6">
+          <div class="absolute inset-x-0 bottom-0 z-10 max-h-[75%] md:max-h-none overflow-y-auto md:overflow-y-visible flex flex-col space-y-2 sm:space-y-3 p-4 sm:p-5 md:p-6">
             <h3 class={`m-0 text-xl font-bold leading-tight sm:text-2xl md:text-3xl lg:text-4xl ${item.titleColor}`}>{item.title}</h3>
             <span class={`block h-0.5 w-16 mt-2 sm:mt-3 ${item.lineColor}`}></span>
             <p class="m-0 text-xs leading-relaxed text-white/85 sm:text-sm md:text-base lg:text-lg">{item.description}</p>
