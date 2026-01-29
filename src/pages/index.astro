@@ -8,7 +8,6 @@ import Services from "../components/Services.astro";
 import Equipment from "../components/Equipment.astro";
 import Coverage from "../components/Coverage.astro";
 import Contact from "../components/Contact.astro";
-import WhatsAppButton from "../components/WhatsAppButton.astro";
 import Footer from "../components/Footer.astro";
 
 const title = "TALAM | Soluciones de medición petrolera";
@@ -21,14 +20,10 @@ const structuredData = {
   name: "TALAM Maquinaria y Suministros",
   description: description,
   url: "https://talam.mx",
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+52-782-115-2175",
-    contactType: "Operaciones",
-    email: "operaciones@talam.mx",
-    areaServed: "MX",
-    availableLanguage: "Spanish",
-  },
+  contactPoint: [
+    { "@type": "ContactPoint", contactType: "Ventas", email: "ventas@talam.mx", areaServed: "MX", availableLanguage: "Spanish" },
+    { "@type": "ContactPoint", contactType: "Operaciones", email: "operaciones@talam.mx", areaServed: "MX", availableLanguage: "Spanish" },
+  ],
   address: {
     "@type": "PostalAddress",
     addressCountry: "MX",
@@ -50,5 +45,4 @@ const structuredData = {
     <Contact />
   </main>
   <Footer />
-  <WhatsAppButton />
 </BaseLayout>
