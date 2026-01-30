@@ -3,40 +3,150 @@ const emails = [
   { label: "Ventas", href: "mailto:ventas@talam.mx", value: "ventas@talam.mx" },
   { label: "Operaciones", href: "mailto:operaciones@talam.mx", value: "operaciones@talam.mx" },
 ];
+
+const serviceOptions = [
+  "Medición en circuito cerrado",
+  "Medición a la atmósfera",
+  "Servicio de well testing",
+  "Mantenimiento de equipos",
+  "Inyección y suministro de químicos",
+  "Pruebas no destructivas",
+];
+
+const equipmentOptions = [
+  "Separador trifásico",
+  "Manifold de estrangulación",
+  "Quemador vertical",
+  "Frac tank / presas metálicas",
+  "Tuberías y conexiones",
+];
 ---
 
-<section id="cotizar" class="bg-white py-20 lg:py-24">
+<section id="cotizar" class="bg-white py-10 lg:py-12">
   <div class="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-    <div class="relative rounded-md bg-blue-600 px-8 py-12 text-white shadow-2xl sm:px-12 sm:py-16 lg:px-16 lg:py-20">
-      <div class="mx-auto max-w-2xl space-y-8 text-center">
-        <div class="space-y-3">
-          <p class="text-sm font-semibold uppercase tracking-wider text-blue-200">Contacto</p>
-          <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-            Cotiza con nosotros
-          </h2>
-          <span class="mx-auto block h-1 w-16 rounded-full bg-blue-400"></span>
-          <p class="text-lg text-white/90 sm:text-xl">
-            Escríbenos para solicitar equipo, servicios de medición o apoyo en campo.
-          </p>
+    <div class="grid gap-6 rounded-md border border-gray-200 shadow-xs lg:grid-cols-2 lg:gap-0">
+      <div class="relative rounded-t-md bg-blue-600 px-8 py-8 text-white sm:px-12 sm:py-10 lg:rounded-l-md lg:rounded-r-none lg:px-16 lg:py-12">
+        <div class="flex h-full flex-col justify-center space-y-8">
+          <div class="space-y-3">
+            <p class="text-sm font-semibold uppercase tracking-wider text-white">Contacto</p>
+            <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+              Cotiza con nosotros
+            </h2>
+            <span class="block h-1 w-16 rounded-full bg-white"></span>
+            <p class="text-lg text-white/90 sm:text-xl">
+              Escríbenos para solicitar equipo, servicios de medición o apoyo en campo.
+            </p>
+          </div>
+          <div class="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:gap-6">
+            {emails.map((item) => (
+              <a
+                href={item.href}
+                class="inline-flex items-center gap-3 rounded-md bg-white/15 px-5 py-3 text-white no-underline transition-colors hover:bg-blue-700 hover:text-white"
+              >
+                <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                </svg>
+                <span class="text-left">
+                  <span class="block text-xs font-medium text-blue-200">{item.label}</span>
+                  <span class="font-semibold">{item.value}</span>
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
+      </div>
 
-        <div class="flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap sm:gap-6">
-          {emails.map((item) => (
-            <a
-              href={item.href}
-              class="inline-flex items-center gap-3 rounded-md bg-white/15 px-5 py-3 text-white transition-colors hover:bg-white/25"
+      <div class="min-w-0 overflow-hidden rounded-b-md px-8 py-8 sm:px-12 sm:py-10 lg:rounded-r-md lg:rounded-l-none lg:px-16 lg:py-12">
+        <form action="#" method="post" class="w-full min-w-0 max-w-full">
+          <div class="mb-5">
+            <label for="contact-name" class="mb-2 block text-sm font-medium text-gray-900">Nombre completo</label>
+            <input
+              type="text"
+              id="contact-name"
+              name="name"
+              required
+              autocomplete="name"
+              class="contact-input block w-full min-w-0 max-w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:outline-none"
+              placeholder="Tu nombre"
+            />
+          </div>
+          <div class="mb-5 grid gap-8 md:grid-cols-2">
+            <div>
+              <label for="contact-email" class="mb-2 block text-sm font-medium text-gray-900">Correo electrónico</label>
+              <input
+                type="email"
+                id="contact-email"
+                name="email"
+                required
+                autocomplete="email"
+                class="block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:outline-none"
+                placeholder="correo@ejemplo.com"
+              />
+            </div>
+            <div>
+              <label for="contact-phone" class="mb-2 block text-sm font-medium text-gray-900">Teléfono</label>
+              <input
+                type="tel"
+                id="contact-phone"
+                name="phone"
+                autocomplete="tel"
+                class="contact-input block w-full min-w-0 max-w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:outline-none"
+                placeholder="Número de contacto"
+              />
+            </div>
+          </div>
+          <div class="mb-5">
+            <label for="contact-service" class="mb-2 block text-sm font-medium text-gray-900">Servicio o equipo de interés</label>
+            <select
+              id="contact-service"
+              name="service"
+              class="contact-select block w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:outline-none"
             >
-              <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-              </svg>
-              <span class="text-left">
-                <span class="block text-xs font-medium text-blue-200">{item.label}</span>
-                <span class="font-semibold">{item.value}</span>
-              </span>
-            </a>
-          ))}
-        </div>
+              <option value="">Seleccione una opción</option>
+              <optgroup label="Servicios">
+                {serviceOptions.map((opt) => (
+                  <option value={opt}>{opt}</option>
+                ))}
+              </optgroup>
+              <optgroup label="Equipos en renta">
+                {equipmentOptions.map((opt) => (
+                  <option value={opt}>{opt}</option>
+                ))}
+              </optgroup>
+            </select>
+          </div>
+          <div class="mb-5">
+            <label for="contact-message" class="mb-2 block text-sm font-medium text-gray-900">Mensaje</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              rows="4"
+              class="contact-input block w-full min-w-0 max-w-full rounded-md border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:outline-none"
+              placeholder="Cuéntanos tu proyecto o necesidad"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full rounded-md border-0 bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none hover:bg-blue-700"
+          >
+            Enviar solicitud
+          </button>
+        </form>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  #cotizar form {
+    box-sizing: border-box;
+  }
+  #cotizar .contact-input,
+  #cotizar .contact-select {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+</style>
+
