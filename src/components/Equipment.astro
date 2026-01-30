@@ -4,10 +4,10 @@ const equipment = [
     title: "Separador trifásico",
     description: "Equipo para medición en circuito cerrado según requerimientos del proyecto.",
     image: "https://images.unsplash.com/photo-1513828646384-e4d8ec30d2bb?auto=format&fit=crop&w=1200&h=1200&q=80",
-    overlay: "bg-slate-900/70",
-    titleColor: "text-slate-200",
-    lineColor: "bg-slate-200",
-    specBg: "bg-slate-900/85",
+    overlay: "bg-slate-900/55",
+    titleColor: "text-white",
+    lineColor: "bg-white",
+    specBg: "bg-blue-900/85",
     isFeatured: true,
     specifications: [
       { label: "Presión de operación", value: "2,000 psi" },
@@ -20,18 +20,18 @@ const equipment = [
     title: "Manifold de estrangulación",
     description: "Manifold y accesorios para medición y control de flujo en campo.",
     image: "https://images.unsplash.com/photo-1679234896355-cf40426d45c6?auto=format&fit=crop&w=1200&h=1200&q=80",
-    overlay: "bg-amber-900/60",
-    titleColor: "text-amber-200",
-    lineColor: "bg-amber-200",
+    overlay: "bg-slate-900/50",
+    titleColor: "text-white",
+    lineColor: "bg-white",
   },
   {
     title: "Quemador vertical",
     description: "Quemadores para combustión segura en operaciones de well testing.",
     image: "https://images.unsplash.com/photo-1710186815441-d5fbe082477d?auto=format&fit=crop&w=1200&h=1200&q=80",
-    overlay: "bg-rose-900/60",
-    titleColor: "text-rose-200",
-    lineColor: "bg-rose-200",
-    specBg: "bg-rose-900/80",
+    overlay: "bg-slate-900/50",
+    titleColor: "text-white",
+    lineColor: "bg-white",
+    specBg: "bg-blue-900/80",
     specifications: [
       { label: "Presión máxima de trabajo", value: "15,000 psi" },
       { label: "Diámetro", value: "2 plg" },
@@ -46,10 +46,10 @@ const equipment = [
     title: "Frac tank / presas metálicas",
     description: "Presas y contenedores para manejo de fluidos en campo.",
     image: "https://images.unsplash.com/photo-1571214309501-f9a2e6bec9fe?auto=format&fit=crop&w=1200&h=1200&q=80",
-    overlay: "bg-green-900/60",
-    titleColor: "text-green-200",
-    lineColor: "bg-green-200",
-    specBg: "bg-green-900/80",
+    overlay: "bg-slate-900/50",
+    titleColor: "text-white",
+    lineColor: "bg-white",
+    specBg: "bg-blue-900/80",
     specifications: [
       { label: "Capacidad", value: "80 m³" },
       { label: "Velocidad de almacenamiento", value: "500 BPD" },
@@ -59,7 +59,7 @@ const equipment = [
     title: "Tuberías y conexiones",
     description: "Tuberías, válvulas y accesorios para instalaciones en campo.",
     image: "https://images.unsplash.com/photo-1538474705339-e87de81450e8?auto=format&fit=crop&w=1200&h=1200&q=80",
-    overlay: "bg-zinc-700/60",
+    overlay: "bg-slate-900/50",
     titleColor: "text-white",
     lineColor: "bg-white",
   },
@@ -81,9 +81,9 @@ const equipment = [
 
     <div class="grid gap-5 sm:grid-cols-2">
       {equipment.map((item) => (
-        <article class={`card-lift group relative aspect-square overflow-hidden rounded-md ${item.isFeatured ? 'shadow-[0_8px_30px_rgba(250,204,21,0.5)] ring-2 ring-amber-400/60' : 'shadow-soft-lg'}`} data-equipment>
+        <article class={`card-lift group relative aspect-square overflow-hidden rounded-md ${item.isFeatured ? 'shadow-[0_8px_30px_rgba(37,99,235,0.4)] ring-2 ring-blue-400/60' : 'shadow-soft-lg'}`} data-equipment>
           {item.isFeatured && (
-            <div class="absolute left-4 top-4 z-20 flex items-center gap-2 rounded-full bg-amber-500/95 px-3 py-1.5 text-sm font-bold text-white shadow-lg backdrop-blur-sm">
+            <div class="absolute left-4 top-4 z-20 flex items-center gap-2 rounded-full bg-blue-500/95 px-3 py-1.5 text-sm font-bold text-white shadow-lg backdrop-blur-sm">
               <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current" aria-hidden="true">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
               </svg>
@@ -96,9 +96,10 @@ const equipment = [
             <div class={`absolute inset-0 transition-opacity duration-300 ${item.overlay}`}></div>
           </div>
           <div class="absolute inset-x-0 bottom-0 z-10 flex flex-col justify-end space-y-3 p-4 sm:p-5 md:p-6">
+            <p class="m-0 text-sm font-semibold uppercase tracking-wide text-blue-200">Equipamiento</p>
             <h3 class={`m-0 text-2xl font-bold leading-tight sm:text-3xl md:text-4xl ${item.titleColor}`}>{item.title}</h3>
             <span class={`block h-0.5 w-16 mt-3 rounded-full ${item.lineColor}`}></span>
-            <p class="m-0 text-sm leading-relaxed text-white/85 sm:text-base md:text-lg">{item.description}</p>
+            <p class="m-0 text-sm leading-relaxed text-white/90 sm:text-base md:text-lg">{item.description}</p>
             <button type="button" class="cursor-pointer mt-2 inline-flex w-fit items-center gap-2 rounded-md border border-white/70 bg-transparent px-5 py-2.5 text-sm font-semibold text-white/90 transition-all duration-300 hover:bg-white/20 hover:text-white hover:border-white hover:-translate-y-0.5" data-modal-open data-modal-title={item.title} data-modal-description={item.description} data-modal-specs={JSON.stringify(item.specifications || [])}>
               Ver más
               <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8">

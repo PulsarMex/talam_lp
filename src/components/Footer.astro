@@ -17,7 +17,7 @@ const emails = [
   <div class="mx-auto max-w-7xl px-6 py-16 sm:px-8 lg:px-10">
     <div class="grid gap-12 lg:grid-cols-4 lg:gap-8">
       <div class="space-y-4 lg:col-span-2">
-        <a href="/" class="inline-block no-underline">
+        <a href="/" class="inline-block cursor-pointer no-underline">
           <img src="/images/talam-logo-white.png" alt="TALAM Maquinaria y Suministros" width="240" height="70" loading="lazy" decoding="async" fetchpriority="low" class="h-16 w-auto" />
         </a>
         <p class="max-w-md text-lg leading-relaxed text-white/70">
@@ -29,7 +29,7 @@ const emails = [
         <h3 class="text-base font-semibold uppercase tracking-wider text-white">Enlaces</h3>
         <nav class="flex flex-col gap-3">
           {navItems.map((item) => (
-            <a href={item.href} class="text-base text-white/70 no-underline transition-colors duration-200 hover:text-white">
+            <a href={item.href} class="cursor-pointer text-base text-white/70 no-underline transition-colors duration-200 hover:text-white">
               {item.label}
             </a>
           ))}
@@ -40,7 +40,7 @@ const emails = [
         <h3 class="text-base font-semibold uppercase tracking-wider text-white">Contacto</h3>
         <div class="flex flex-col gap-4 text-base text-white/70">
           {emails.map((item) => (
-            <a href={item.href} class="flex items-center gap-2 text-white no-underline transition-colors duration-200 hover:text-white/90">
+            <a href={item.href} class="flex cursor-pointer items-center gap-2 text-white no-underline transition-colors duration-200 hover:text-white/90">
               <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
               </svg>
@@ -56,11 +56,11 @@ const emails = [
   </div>
 
   <div class="border-t border-white/10">
-    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 text-sm text-white/50 sm:flex-row sm:px-8 lg:px-10">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-6 text-sm text-white/60 sm:flex-row sm:px-8 lg:px-10">
       <p>© 2026 TALAM Maquinaria y Suministros. Todos los derechos reservados.</p>
       <p>
         Impulsado por
-        <a href="https://pulsarmex.com" target="_blank" rel="noopener noreferrer" class="font-medium text-white/70 no-underline transition-colors duration-200 hover:text-white">
+        <a href="https://pulsarmex.com" target="_blank" rel="noopener noreferrer" class="cursor-pointer font-medium text-white/70 no-underline transition-colors duration-200 hover:text-white">
           PulsarMex
         </a>
       </p>

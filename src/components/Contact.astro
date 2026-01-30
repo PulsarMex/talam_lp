@@ -25,7 +25,7 @@ const equipmentOptions = [
 <section id="cotizar" class="bg-white py-10 lg:py-12">
   <div class="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
     <div class="grid gap-6 rounded-md border border-gray-200 shadow-xs lg:grid-cols-2 lg:gap-0">
-      <div class="relative rounded-t-md bg-blue-600 px-8 py-8 text-white sm:px-12 sm:py-10 lg:rounded-l-md lg:rounded-r-none lg:px-16 lg:py-12">
+      <div class="relative rounded-t-md bg-blue-950/90 px-8 py-8 text-white sm:px-12 sm:py-10 lg:rounded-l-md lg:rounded-r-none lg:px-16 lg:py-12">
         <div class="flex h-full flex-col justify-center space-y-8">
           <div class="space-y-3">
             <p class="text-sm font-semibold uppercase tracking-wider text-white">Contacto</p>
@@ -41,13 +41,13 @@ const equipmentOptions = [
             {emails.map((item) => (
               <a
                 href={item.href}
-                class="inline-flex items-center gap-3 rounded-md bg-white/15 px-5 py-3 text-white no-underline transition-colors hover:bg-blue-700 hover:text-white"
+                class="inline-flex items-center gap-3 rounded-md bg-white/15 px-5 py-3 text-white no-underline transition-all duration-200 hover:bg-white/30 hover:ring-2 hover:ring-white/50"
               >
                 <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0" fill="none" stroke="currentColor" stroke-width="1.5">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                 </svg>
                 <span class="text-left">
-                  <span class="block text-xs font-medium text-blue-200">{item.label}</span>
+                  <span class="block text-xs font-medium text-blue-100">{item.label}</span>
                   <span class="font-semibold">{item.value}</span>
                 </span>
               </a>
@@ -56,7 +56,7 @@ const equipmentOptions = [
         </div>
       </div>
 
-      <div class="min-w-0 overflow-hidden rounded-b-md px-8 py-8 sm:px-12 sm:py-10 lg:rounded-r-md lg:rounded-l-none lg:px-16 lg:py-12">
+      <div class="min-w-0 overflow-hidden rounded-b-md bg-white px-8 py-8 sm:px-12 sm:py-10 lg:rounded-r-md lg:rounded-l-none lg:px-16 lg:py-12">
         <form action="#" method="post" class="w-full min-w-0 max-w-full">
           <div class="mb-5">
             <label for="contact-name" class="mb-2 block text-sm font-medium text-gray-900">Nombre completo</label>
@@ -127,7 +127,7 @@ const equipmentOptions = [
           </div>
           <button
             type="submit"
-            class="w-full rounded-md border-0 bg-blue-600 px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none hover:bg-blue-700"
+            class="w-full cursor-pointer rounded-md border-0 bg-blue-950/90 px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-950 hover:shadow-md"
           >
             Enviar solicitud
           </button>
