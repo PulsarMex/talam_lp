@@ -4,7 +4,7 @@ const equipment = [
     title: "Separador trifásico",
     description: "Equipo para medición en circuito cerrado según requerimientos del proyecto.",
     image: "/images/separador_trifasico_talam.jpg",
-    overlay: "bg-slate-900/55",
+    overlay: "bg-neutral-900/55",
     titleColor: "text-white",
     lineColor: "bg-white",
     specBg: "bg-blue-900/85",
@@ -20,7 +20,7 @@ const equipment = [
     title: "Manifold de estrangulación",
     description: "Manifold y accesorios para medición y control de flujo en campo.",
     image: "/images/manifold.jpg",
-    overlay: "bg-slate-900/50",
+    overlay: "bg-neutral-900/55",
     titleColor: "text-white",
     lineColor: "bg-white",
   },
@@ -28,7 +28,7 @@ const equipment = [
     title: "Quemador vertical",
     description: "Quemadores para combustión segura en operaciones de well testing.",
     image: "/images/quemador_vertical.jpg",
-    overlay: "bg-slate-900/50",
+    overlay: "bg-neutral-900/55",
     titleColor: "text-white",
     lineColor: "bg-white",
     specBg: "bg-blue-900/80",
@@ -46,7 +46,7 @@ const equipment = [
     title: "Frac tank / presas metálicas",
     description: "Presas y contenedores para manejo de fluidos en campo.",
     image: "/images/frac_tank.jpg",
-    overlay: "bg-slate-900/50",
+    overlay: "bg-neutral-900/55",
     titleColor: "text-white",
     lineColor: "bg-white",
     specBg: "bg-blue-900/80",
@@ -59,7 +59,7 @@ const equipment = [
     title: "Tuberías y conexiones",
     description: "Tuberías, válvulas y accesorios para instalaciones en campo.",
     image: "/images/tuberias.jpg",
-    overlay: "bg-slate-900/50",
+    overlay: "bg-neutral-900/55",
     titleColor: "text-white",
     lineColor: "bg-white",
   },
@@ -81,9 +81,9 @@ const equipment = [
 
     <div class="grid gap-5 sm:grid-cols-2">
       {equipment.map((item) => (
-        <article class={`card-lift group relative aspect-square overflow-hidden rounded-md ${item.isFeatured ? 'shadow-[0_8px_30px_rgba(37,99,235,0.4)] ring-2 ring-blue-400/60' : 'shadow-soft-lg'}`} data-equipment>
+        <article class={`card-lift group relative aspect-square overflow-hidden rounded-md ${item.isFeatured ? 'ring-4 ring-amber-400 shadow-soft-lg' : 'shadow-soft-lg'}`} data-equipment>
           {item.isFeatured && (
-            <div class="absolute left-4 top-4 z-20 flex items-center gap-2 rounded-full bg-blue-500/95 px-3 py-1.5 text-sm font-bold text-white shadow-lg backdrop-blur-sm">
+            <div class="absolute left-4 top-4 z-20 flex items-center gap-2 rounded-full bg-amber-400 px-3 py-1.5 text-sm font-bold text-white shadow-lg backdrop-blur-sm">
               <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current" aria-hidden="true">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
               </svg>
