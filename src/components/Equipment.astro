@@ -81,9 +81,9 @@ const equipment = [
 
     <div class="grid gap-5 sm:grid-cols-2">
       {equipment.map((item) => (
-        <article class={`card-lift group relative aspect-square overflow-hidden rounded-md ${item.isFeatured ? 'ring-4 ring-amber-400 shadow-soft-lg' : 'shadow-soft-lg'}`} data-equipment>
+        <article class={`card-lift group relative aspect-square overflow-hidden rounded-md ${item.isFeatured ? 'ring-4 ring-blue-600 shadow-soft-lg' : 'shadow-soft-lg'}`} data-equipment>
           {item.isFeatured && (
-            <div class="absolute left-4 top-4 z-20 flex items-center gap-2 rounded-full bg-amber-400 px-3 py-1.5 text-sm font-bold text-white shadow-lg backdrop-blur-sm">
+            <div class="absolute left-4 top-4 z-20 flex items-center gap-2 rounded-full bg-blue-600 px-3 py-1.5 text-sm font-bold text-white shadow-lg backdrop-blur-sm">
               <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current" aria-hidden="true">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
               </svg>
