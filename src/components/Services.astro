@@ -67,7 +67,7 @@ const services = [
             <div class={`grid min-h-40 overflow-hidden md:min-h-48 md:grid-cols-2 ${index % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}>
               <div class="relative overflow-hidden">
                 <img src={service.image} alt={`Servicio de ${service.title}`} width="1200" height="1200" loading={index < 3 ? "eager" : "lazy"} decoding="async" fetchpriority={index === 0 ? "high" : "auto"} class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
-                <div class="absolute inset-0 transition-opacity duration-300 bg-neutral-900/20"></div>
+                <div class="absolute inset-0 transition-opacity duration-300 bg-neutral-900/30"></div>
               </div>
               <div class={`flex items-center ${service.panelBg} px-6 py-6 text-white sm:px-8 md:px-9`}>
                 <div class="space-y-3">
