@@ -4,7 +4,7 @@ const equipment = [
     title: "Equipo de separación trifásico",
     description: "Equipo para medición en circuito cerrado según requerimientos del proyecto.",
     image: "/images/separador_trifasico_talam.jpg",
-    overlay: "bg-neutral-900/45",
+    overlay: "bg-neutral-900/20",
     titleColor: "text-white",
     lineColor: "bg-white",
     specBg: "bg-blue-900/85",
@@ -20,7 +20,7 @@ const equipment = [
     title: "Manifold de estrangulación",
     description: "Manifold y accesorios para medición y control de flujo en campo.",
     image: "/images/manifold.jpg",
-    overlay: "bg-neutral-900/45",
+    overlay: "bg-neutral-900/20",
     titleColor: "text-white",
     lineColor: "bg-white",
   },
@@ -28,7 +28,7 @@ const equipment = [
     title: "Quemador ecológico vertical",
     description: "Quemadores para combustión segura en operaciones de well testing.",
     image: "/images/quemador_vertical.jpg",
-    overlay: "bg-neutral-900/45",
+    overlay: "bg-neutral-900/20",
     titleColor: "text-white",
     lineColor: "bg-white",
     specBg: "bg-blue-900/80",
@@ -46,7 +46,7 @@ const equipment = [
     title: "Frac tank / presas metálicas",
     description: "Presas y contenedores para manejo de fluidos en campo.",
     image: "/images/frac_tank.jpg",
-    overlay: "bg-neutral-900/45",
+    overlay: "bg-neutral-900/20",
     titleColor: "text-white",
     lineColor: "bg-white",
     specBg: "bg-blue-900/80",
@@ -59,7 +59,7 @@ const equipment = [
     title: "Tubería de alta y baja presión",
     description: "Tuberías, válvulas y accesorios para instalaciones en campo.",
     image: "/images/tuberias.jpg",
-    overlay: "bg-neutral-900/45",
+    overlay: "bg-neutral-900/20",
     titleColor: "text-white",
     lineColor: "bg-white",
   },
@@ -81,7 +81,7 @@ const equipment = [
 
     <div class="grid gap-5 sm:grid-cols-2">
       {equipment.map((item) => (
-        <article class={`card-lift group relative aspect-square overflow-hidden rounded-md ${item.isFeatured ? 'ring-4 ring-blue-600 shadow-soft-lg' : 'shadow-soft-lg'}`} data-equipment>
+        <article class="card-lift group relative aspect-square overflow-hidden rounded-md shadow-soft-lg" data-equipment>
           {item.isFeatured && (
             <div class="absolute left-4 top-4 z-20 flex items-center gap-2 rounded-full bg-blue-600 px-3 py-1.5 text-sm font-bold text-white shadow-lg backdrop-blur-sm">
               <svg viewBox="0 0 24 24" class="h-4 w-4 fill-current" aria-hidden="true">
@@ -95,12 +95,12 @@ const equipment = [
             <img src={item.image} alt={`Equipo ${item.title}`} width="600" height="600" loading="lazy" decoding="async" fetchpriority={item.isFeatured ? "high" : "auto"} class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" />
             <div class={`absolute inset-0 transition-opacity duration-300 ${item.overlay}`}></div>
           </div>
-          <div class="absolute inset-x-0 bottom-0 z-10 flex flex-col justify-end space-y-3 p-4 sm:p-5 md:p-6">
+          <div class="absolute inset-x-0 bottom-0 z-10 flex flex-col justify-end space-y-3 bg-gradient-to-t from-neutral-900/85 via-neutral-900/60 via-neutral-900/40 via-neutral-900/25 to-transparent p-4 sm:p-5 md:p-6">
             <p class="m-0 text-sm font-semibold uppercase tracking-wide text-blue-200">Equipamiento</p>
             <h3 class={`m-0 text-2xl font-bold leading-tight sm:text-3xl md:text-4xl ${item.titleColor}`}>{item.title}</h3>
             <span class={`block h-0.5 w-16 mt-3 rounded-full ${item.lineColor}`}></span>
             <p class="m-0 text-sm leading-relaxed text-white/90 sm:text-base md:text-lg">{item.description}</p>
-            <button type="button" class="cursor-pointer mt-2 inline-flex w-fit items-center gap-2 rounded-md border border-white/70 bg-transparent px-5 py-2.5 text-sm font-semibold text-white/90 transition-all duration-300 hover:bg-white/20 hover:text-white hover:border-white hover:-translate-y-0.5" data-modal-open data-modal-title={item.title} data-modal-description={item.description} data-modal-specs={JSON.stringify(item.specifications || [])}>
+            <button type="button" class="cursor-pointer mt-2 inline-flex w-fit items-center gap-2 rounded-md border border-white/70 bg-transparent px-5 py-2.5 text-sm font-semibold text-white/90 transition-all duration-300 hover:bg-white/20 hover:text-white hover:border-white hover:-translate-y-0.5" data-modal-open data-modal-title={item.title} data-modal-description={item.description} data-modal-image={item.image} data-modal-specs={JSON.stringify(item.specifications || [])}>
               Ver más
               <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
