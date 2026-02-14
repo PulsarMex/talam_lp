@@ -17,15 +17,15 @@ const valores = [
 ];
 ---
 
-<section id="nosotros" class="bg-gray-50 py-20 bg-grid">
+<section id="nosotros" class="bg-slate-50 py-20 bg-grid">
   <div class="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
     <div class="grid gap-10 lg:grid-cols-2 lg:gap-12">
       <div class="space-y-8">
         <div class="space-y-4">
-          <p class="text-md font-semibold uppercase tracking-wide text-blue-600">Nosotros</p>
+          <p class="section-eyebrow text-blue-600">Nosotros</p>
           <div class="space-y-3">
-            <h2 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">Identidad corporativa</h2>
-            <span class="block h-1 w-16 rounded-full bg-blue-600"></span>
+            <h2 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">Identidad <span class="text-blue-600">corporativa</span></h2>
+            <span class="section-divider bg-blue-600"></span>
           </div>
           <p class="mb-6 text-lg leading-relaxed text-slate-600 sm:text-xl">
             Conoce a Talam y la forma en que trabajamos: nuestra historia, propósito y los valores que nos guían en cada servicio.
@@ -35,10 +35,10 @@ const valores = [
         <div class="group relative block overflow-hidden rounded-md shadow-soft-lg lg:hidden">
           <img src="/images/talam-logo-white.png" alt="" width="60" height="17" class="pointer-events-none absolute right-4 top-4 z-10 h-auto w-16 opacity-25 sm:right-6 sm:w-20" aria-hidden="true" />
           <img src="/images/identidad.jpeg" alt="Identidad corporativa de Talam" width="1200" height="800" loading="lazy" decoding="async" fetchpriority="low" class="block w-full h-auto transition-transform duration-700 ease-out group-hover:scale-105" />
-          <div class="absolute inset-0 bg-neutral-900/30"></div>
+          <div class="absolute inset-0 bg-linear-to-t from-neutral-900/45 to-neutral-900/20"></div>
         </div>
 
-        <div class="border-b border-gray-200" data-tabs>
+        <div class="border-b border-slate-200" data-tabs>
           <div class="flex flex-wrap gap-0">
             {tabs.map((tab) => (
               <button type="button" data-tab={tab.id} class="group relative flex cursor-pointer items-center gap-2.5 rounded-md border-0 bg-transparent px-5 py-4 text-sm font-semibold text-slate-600 transition-all duration-300 hover:text-slate-700" aria-selected={tab.id === "quienes" ? "true" : "false"}>
@@ -72,7 +72,7 @@ const valores = [
           </div>
         </div>
 
-        <div class="group relative rounded-md border border-gray-200 bg-white p-8 transition-all duration-300 hover:shadow-lg" data-panels>
+        <div class="group relative rounded-md border border-blue-100/70 bg-white p-8 transition-all duration-300 hover:shadow-lg" data-panels>
           <img src="/images/talam-logo-white.png" alt="" aria-hidden="true" loading="lazy" decoding="async" class="pointer-events-none absolute right-6 top-6 z-10 h-auto w-16 opacity-20 invert brightness-50 sm:right-8 sm:w-20" />
           <div data-panel="quienes" class="relative z-10">
             <div class="flex items-center gap-4">
@@ -148,7 +148,7 @@ const valores = [
       <div class="group relative hidden self-start overflow-hidden rounded-md shadow-soft-lg lg:block">
         <img src="/images/talam-logo-white.png" alt="" width="60" height="17" class="pointer-events-none absolute right-4 top-4 z-10 h-auto w-16 opacity-25 sm:right-6 sm:w-20" aria-hidden="true" />
         <img src="/images/identidad.jpeg" alt="Identidad corporativa de Talam" width="1200" height="800" loading="lazy" decoding="async" fetchpriority="low" class="block w-full object-cover object-[16%_center] transition-transform duration-700 ease-out group-hover:scale-105" />
-        <div class="absolute inset-0 bg-neutral-900/30"></div>
+        <div class="absolute inset-0 bg-linear-to-t from-neutral-900/45 to-neutral-900/20"></div>
       </div>
     </div>
   </div>

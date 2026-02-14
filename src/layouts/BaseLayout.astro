@@ -2,7 +2,7 @@
 import ContentModal from "../components/ContentModal.astro";
 
 const {
-  title = "Talam | Maquinaria",
+  title = "Talam | Maquinaria y Suministros",
   description = "Talam: maquinaria y soluciones para proyectos industriales.",
   canonicalURL,
   ogImage,
@@ -42,8 +42,6 @@ const ogImageURL = ogImage ? new URL(ogImage, siteURL).href : new URL("/images/t
     <meta name="twitter:image" content={ogImageURL} />
 
     <title>{title}</title>
-    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
-    <link rel="dns-prefetch" href="https://images.unsplash.com" />
   </head>
   <body class="font-sans antialiased">
     <slot />
