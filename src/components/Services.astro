@@ -1,11 +1,28 @@
 ---
 import { Image } from "astro:assets";
 
+const medicionGallery = [
+  "/images/medicion/image1.jpg",
+  "/images/medicion/image2.jpg",
+  "/images/medicion/image3.jpg",
+  "/images/medicion/image4.jpg",
+  "/images/medicion/image5.jpg",
+];
+
+const mantenimientoGallery = [
+  "/images/mantenimiento.jpg",
+  "/images/mantenimiento/image2.jpg",
+  "/images/mantenimiento/image3.jpg",
+  "/images/mantenimiento/image4.jpg",
+  "/images/mantenimiento/image5.jpg",
+];
+
 const services = [
   {
     title: "Medición de pozos",
     description: "Servicios de medición en circuito cerrado y a la atmósfera con equipo de separación trifásico, manifold de estrangulación, frac tank o presas metálicas y quemador ecológico vertical, con personal capacitado, según requerimientos del cliente.",
     image: "/images/well_testing.jpeg",
+    gallery: medicionGallery,
     overlay: "bg-neutral-900/30",
     panelBg: "bg-blue-950/90",
     titleColor: "text-white",
@@ -15,6 +32,7 @@ const services = [
     title: "Mantenimiento de equipos",
     description: "Mantenimiento de manifold de estrangulación, presas metálicas o frac tank, equipo de separación trifásico, quemador ecológico vertical, tuberías, válvulas y accesorios.",
     image: "/images/mantenimiento.jpg",
+    gallery: mantenimientoGallery,
     overlay: "bg-neutral-900/30",
     panelBg: "bg-blue-950/90",
     titleColor: "text-white",
@@ -78,7 +96,7 @@ const services = [
                   <h3 class={`m-0 text-2xl font-bold leading-tight sm:text-3xl md:text-4xl ${service.titleColor}`}>{service.title}</h3>
                   <span class={`block h-0.5 w-16 mt-3 rounded-full ${service.lineColor}`}></span>
                   <p class="text-sm leading-relaxed text-white/90 sm:text-base md:text-lg">{service.description}</p>
-                  <button type="button" class="cursor-pointer mt-2 inline-flex w-fit items-center gap-2 rounded-md border border-white/70 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white/90 backdrop-blur-[1px] transition-all duration-300 hover:-translate-y-0.5 hover:border-white hover:bg-white/20 hover:text-white" data-modal-open data-modal-title={service.title} data-modal-description={service.description} data-modal-image={service.image}>
+                  <button type="button" class="cursor-pointer mt-2 inline-flex w-fit items-center gap-2 rounded-md border border-white/70 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white/90 backdrop-blur-[1px] transition-all duration-300 hover:-translate-y-0.5 hover:border-white hover:bg-white/20 hover:text-white" data-modal-open data-modal-title={service.title} data-modal-description={service.description} data-modal-image={service.image} data-modal-gallery={service.gallery ? JSON.stringify(service.gallery) : ""}>
                     Ver más
                     <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.8">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6" />
