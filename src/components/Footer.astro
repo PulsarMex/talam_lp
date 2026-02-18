@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 const navItems = [
   { label: "Nosotros", href: "#nosotros" },
   { label: "Servicios", href: "#servicios" },
@@ -18,7 +20,7 @@ const emails = [
     <div class="grid gap-12 lg:grid-cols-4 lg:gap-8">
       <div class="space-y-4 lg:col-span-2">
         <a href="/" class="inline-block cursor-pointer no-underline">
-          <img src="/images/talam-logo-white.png" alt="Talam Maquinaria y Suministros" width="240" height="70" loading="lazy" decoding="async" fetchpriority="low" class="h-16 w-auto" />
+          <Image src="/images/talam-logo-white.png" alt="Talam Maquinaria y Suministros" width={240} height={70} loading="lazy" fetchpriority="low" class="h-16 w-auto" />
         </a>
         <p class="max-w-md text-lg leading-relaxed text-white/70">
           Renta de equipo de medición y operación técnica especializada para el sector energético en el sureste de México.

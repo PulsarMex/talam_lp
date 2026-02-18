@@ -9,25 +9,19 @@
       <div class="relative">
         <div class="modal-gallery relative hidden w-full overflow-hidden px-3 pt-3">
           <div class="modal-carousel-wrapper relative w-full">
-            <div class="modal-carousel flex transition-transform duration-500 ease-in-out" style="transform: translateX(0%)">
-              <div class="modal-slide shrink-0 w-full">
-                <img src="" alt="" class="w-full h-auto" />
-              </div>
-              <div class="modal-slide shrink-0 w-full">
-                <img src="" alt="" class="w-full h-auto" />
-              </div>
-            </div>
-            <button type="button" class="modal-carousel-prev absolute left-5 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/15 text-white backdrop-blur-md shadow-lg transition-all duration-300 hover:border-white/45 hover:bg-black/25" aria-label="Anterior">
+            <div class="modal-carousel flex transition-transform duration-500 ease-in-out" style="transform: translateX(0%)"></div>
+            <button type="button" class="modal-carousel-prev absolute left-5 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/15 text-white backdrop-blur-md shadow-lg transition-all duration-300 hover:border-white/45 hover:bg-black/25 disabled:opacity-40 disabled:pointer-events-none" aria-label="Anterior">
               <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M15 18l-6-6 6-6" />
               </svg>
             </button>
-            <button type="button" class="modal-carousel-next absolute right-5 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/15 text-white backdrop-blur-md shadow-lg transition-all duration-300 hover:border-white/45 hover:bg-black/25" aria-label="Siguiente">
+            <button type="button" class="modal-carousel-next absolute right-5 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/30 bg-black/15 text-white backdrop-blur-md shadow-lg transition-all duration-300 hover:border-white/45 hover:bg-black/25 disabled:opacity-40 disabled:pointer-events-none" aria-label="Siguiente">
               <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M9 18l6-6-6-6" />
               </svg>
             </button>
           </div>
+          <p class="modal-gallery-counter mt-2 text-center text-xs text-slate-500" aria-live="polite"></p>
         </div>
         <div class="px-8 pb-8 pt-7 sm:px-10 sm:pb-10 sm:pt-8">
         <h2 id="modal-title" class="pr-12 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl"></h2>
@@ -102,8 +96,11 @@
   var specsEl = modal && modal.querySelector(".modal-specs");
   var carouselGallery = modal && modal.querySelector(".modal-gallery");
   var carouselEl = modal && modal.querySelector(".modal-carousel");
-  var carouselSlides = modal && modal.querySelectorAll(".modal-slide img");
+  var carouselPrev = modal && modal.querySelector(".modal-carousel-prev");
+  var carouselNext = modal && modal.querySelector(".modal-carousel-next");
+  var galleryCounter = modal && modal.querySelector(".modal-gallery-counter");
   var currentSlide = 0;
+  var totalSlides = 0;
 
   function esc(s) {
     var d = document.createElement("div");
@@ -114,25 +111,53 @@
   function updateCarousel() {
     if (!carouselEl) return;
     carouselEl.style.transform = "translateX(-" + (currentSlide * 100) + "%)";
+    if (galleryCounter && totalSlides > 0) {
+      galleryCounter.textContent = (currentSlide + 1) + " / " + totalSlides;
+    }
+    if (carouselPrev) carouselPrev.disabled = totalSlides <= 1;
+    if (carouselNext) carouselNext.disabled = totalSlides <= 1;
   }
 
-  function openModal(title, description, specsJson, imageUrl) {
+  function openModal(title, description, specsJson, imageUrl, galleryJson) {
     if (!modal || !titleEl || !bodyEl) return;
     titleEl.textContent = title || "";
     bodyEl.innerHTML = description ? "<p class=\"leading-relaxed text-slate-600\">" + esc(description) + "</p>" : "";
-    
-    if (carouselSlides && carouselGallery && imageUrl) {
+
+    var gallery = [];
+    try {
+      if (galleryJson) {
+        var parsed = typeof galleryJson === "string" ? JSON.parse(galleryJson) : galleryJson;
+        if (Array.isArray(parsed) && parsed.length > 0) gallery = parsed;
+      }
+    } catch (_) {}
+    if (gallery.length === 0 && imageUrl) {
+      gallery = [imageUrl];
+    }
+
+    if (carouselEl && carouselGallery && gallery.length > 0) {
       carouselGallery.classList.remove("hidden");
-      carouselSlides.forEach(function(img) {
-        img.src = imageUrl;
-        img.alt = title || "";
+      carouselEl.innerHTML = "";
+      var altText = title || "";
+      gallery.forEach(function (src, i) {
+        var slide = document.createElement("div");
+        slide.className = "modal-slide shrink-0 w-full";
+        var img = document.createElement("img");
+        img.src = src;
+        img.alt = altText;
+        img.className = "w-full h-auto";
+        img.loading = i === 0 ? "eager" : "lazy";
+        img.decoding = "async";
+        slide.appendChild(img);
+        carouselEl.appendChild(slide);
       });
+      totalSlides = gallery.length;
       currentSlide = 0;
       updateCarousel();
     } else if (carouselGallery) {
       carouselGallery.classList.add("hidden");
+      totalSlides = 0;
     }
-    
+
     if (specsEl) {
       try {
         var specs = specsJson ? JSON.parse(specsJson) : [];
@@ -166,18 +191,24 @@
     var t = e.target.closest("[data-modal-open]");
     if (t) {
       e.preventDefault();
-      openModal(t.getAttribute("data-modal-title") || "", t.getAttribute("data-modal-description") || "", t.getAttribute("data-modal-specs") || "", t.getAttribute("data-modal-image") || "");
+      openModal(
+        t.getAttribute("data-modal-title") || "",
+        t.getAttribute("data-modal-description") || "",
+        t.getAttribute("data-modal-specs") || "",
+        t.getAttribute("data-modal-image") || "",
+        t.getAttribute("data-modal-gallery") || ""
+      );
       return;
     }
     if (e.target.closest("[data-modal-close]") || e.target.classList.contains("modal-bg") || e.target.closest(".modal-cta")) {
       closeModal();
     }
-    if (e.target.closest(".modal-carousel-prev")) {
-      currentSlide = currentSlide === 0 ? 1 : 0;
+    if (e.target.closest(".modal-carousel-prev") && totalSlides > 1) {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
       updateCarousel();
     }
-    if (e.target.closest(".modal-carousel-next")) {
-      currentSlide = currentSlide === 1 ? 0 : 1;
+    if (e.target.closest(".modal-carousel-next") && totalSlides > 1) {
+      currentSlide = (currentSlide + 1) % totalSlides;
       updateCarousel();
     }
   });

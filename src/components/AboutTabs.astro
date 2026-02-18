@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 const tabs = [
   { id: "quienes", label: "Quiénes somos", icon: "users" },
   { id: "mision", label: "Misión", icon: "target" },
@@ -33,8 +35,8 @@ const valores = [
         </div>
 
         <div class="group relative block overflow-hidden rounded-md shadow-soft-lg lg:hidden">
-          <img src="/images/talam-logo-white.png" alt="" width="60" height="17" class="pointer-events-none absolute right-4 top-4 z-10 h-auto w-16 opacity-25 sm:right-6 sm:w-20" aria-hidden="true" />
-          <img src="/images/identidad.jpeg" alt="Identidad corporativa de Talam" width="1200" height="800" loading="lazy" decoding="async" fetchpriority="low" class="block w-full h-auto transition-transform duration-700 ease-out group-hover:scale-105" />
+          <Image src="/images/talam-logo-white.png" alt="" width={60} height={17} class="pointer-events-none absolute right-4 top-4 z-10 h-auto w-16 opacity-25 sm:right-6 sm:w-20" aria-hidden="true" />
+          <Image src="/images/identidad.jpeg" alt="Identidad corporativa de Talam" width={1200} height={800} loading="lazy" fetchpriority="low" class="block w-full h-auto transition-transform duration-700 ease-out group-hover:scale-105" />
           <div class="absolute inset-0 bg-linear-to-t from-neutral-900/45 to-neutral-900/20"></div>
         </div>
 
@@ -73,7 +75,7 @@ const valores = [
         </div>
 
         <div class="group relative rounded-md border border-blue-100/70 bg-white p-8 transition-all duration-300 hover:shadow-lg" data-panels>
-          <img src="/images/talam-logo-white.png" alt="" aria-hidden="true" loading="lazy" decoding="async" class="pointer-events-none absolute right-6 top-6 z-10 h-auto w-16 opacity-20 invert brightness-50 sm:right-8 sm:w-20" />
+          <Image src="/images/talam-logo-white.png" alt="" width={60} height={17} aria-hidden="true" loading="lazy" class="pointer-events-none absolute right-6 top-6 z-10 h-auto w-16 opacity-20 invert brightness-50 sm:right-8 sm:w-20" />
           <div data-panel="quienes" class="relative z-10">
             <div class="flex items-center gap-4">
               <span class="flex h-14 w-14 items-center justify-center rounded-md bg-blue-100 text-blue-600 transition-all duration-300 group-hover:bg-blue-600 group-hover:text-white">
@@ -146,8 +148,8 @@ const valores = [
       </div>
 
       <div class="group relative hidden self-start overflow-hidden rounded-md shadow-soft-lg lg:block">
-        <img src="/images/talam-logo-white.png" alt="" width="60" height="17" class="pointer-events-none absolute right-4 top-4 z-10 h-auto w-16 opacity-25 sm:right-6 sm:w-20" aria-hidden="true" />
-        <img src="/images/identidad.jpeg" alt="Identidad corporativa de Talam" width="1200" height="800" loading="lazy" decoding="async" fetchpriority="low" class="block w-full object-cover object-[16%_center] transition-transform duration-700 ease-out group-hover:scale-105" />
+        <Image src="/images/talam-logo-white.png" alt="" width={60} height={17} class="pointer-events-none absolute right-4 top-4 z-10 h-auto w-16 opacity-25 sm:right-6 sm:w-20" aria-hidden="true" />
+        <Image src="/images/identidad.jpeg" alt="Identidad corporativa de Talam" width={1200} height={800} loading="lazy" fetchpriority="low" class="block w-full object-cover object-[16%_center] transition-transform duration-700 ease-out group-hover:scale-105" />
         <div class="absolute inset-0 bg-linear-to-t from-neutral-900/45 to-neutral-900/20"></div>
       </div>
     </div>

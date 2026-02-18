@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 const locations = [
   {
     city: "Villahermosa",
@@ -22,9 +24,11 @@ const locations = [
   </div>
   <div class="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
     <div class="absolute right-0 top-0 flex h-full w-full max-w-[90%] translate-y-8 items-center justify-end overflow-hidden md:max-w-[88%] lg:translate-y-10 lg:max-w-[86%]">
-      <img
+      <Image
         src="/images/mexico.svg"
         alt="Mapa de México con cobertura en Tabasco y Veracruz"
+        width={800}
+        height={600}
         class="h-full min-h-80 w-full max-w-135 object-contain object-right opacity-30 saturate-0 sm:min-h-100 md:max-w-none"
       />
     </div>
